@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
 import Feather from "@expo/vector-icons/Feather"; //importar icones da rede
 
@@ -10,7 +10,7 @@ export default function App() {
         <View style={styles.container}>
             <Header />
             {/* <ScrollView style={styles.ScrollTamanho}> */}
-                <Body />
+            <Body />
             {/* </ScrollView> */}
             <Footer />
             <StatusBar style="auto" />
@@ -53,7 +53,53 @@ const styles = StyleSheet.create({
 
     conteudo: {
         backgroundColor: 'red',
-        alignItems: 'center',
+        flex: 1,
+        flexDirection: 'column',
+        margin: 10,
+    },
+
+    card: {
+        height: 150,
+        backgroundColor: 'green',
+        flexDirection: 'row',
+    },
+
+    image: {
+        backgroundColor: 'blue',
+        height: 125,
+        width: '35%',
+    },
+
+    elementos: {
+        backgroundColor: 'purple',
+        height: 150,
+        width: '65%',
+    },
+
+    titulo: {
+        backgroundColor: 'red',
+        height: 35,
+        width: '65%',
+    },
+
+    descricao: {
+        backgroundColor: 'white',
+        height: 65,
+        width: '100%',
+    },
+
+    favButton: {
+        backgroundColor: 'black',
+        height: 50,
+        width: '100%',
+        alignItems: 'flex-end'
+        
+    },
+
+    button: {
+        backgroundColor: 'pink',
+        height: 50,
+        width: '25%',
     },
 
     //Baixo
@@ -139,11 +185,27 @@ function Body() {
 
         <View style={styles.Body}>
 
-        <ScrollView>
-            <View style={styles.conteudo}>
+            <ScrollView>
+                <View style={styles.conteudo}>
 
-            </View>
-        </ScrollView>
+                    <View style={styles.card}>
+
+                        <View style={styles.image}></View>
+
+                        <View style={styles.elementos}>
+
+                            <View style={styles.titulo}></View>
+                            <View style={styles.descricao}></View>
+                            <View style={styles.favButton}>
+                                <View style={styles.button}></View>
+                            </View>
+
+                        </View>
+
+                    </View>
+
+                </View>
+            </ScrollView>
 
         </View>
 
