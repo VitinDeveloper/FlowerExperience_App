@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text, Button } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
 import Feather from "@expo/vector-icons/Feather"; //importar icones da rede
 
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         margin: 10,
+        alignItems: 'center',
     },
 
     card: {
@@ -80,12 +81,14 @@ const styles = StyleSheet.create({
         backgroundColor: 'red',
         height: 35,
         width: '65%',
+        alignItems: 'center',
     },
 
     descricao: {
         backgroundColor: 'white',
         height: 65,
         width: '100%',
+        alignItems: 'center',
     },
 
     favButton: {
@@ -93,13 +96,22 @@ const styles = StyleSheet.create({
         height: 50,
         width: '100%',
         alignItems: 'flex-end'
-        
+
     },
 
     button: {
         backgroundColor: 'pink',
         height: 50,
         width: '25%',
+        alignItems: 'center',
+    },
+
+    linha: {
+        backgroundColor: '#8b8a7a',
+        height: 3,
+        width: '90%',
+        marginTop: 10,
+        marginBottom: 10,
     },
 
     //Baixo
@@ -187,22 +199,37 @@ function Body() {
 
             <ScrollView>
                 <View style={styles.conteudo}>
-
                     <View style={styles.card}>
 
-                        <View style={styles.image}></View>
-
+                        <View style={styles.image}>
+                            {/* <Image source={require('')} /> */}
+                        </View>
                         <View style={styles.elementos}>
-
-                            <View style={styles.titulo}></View>
-                            <View style={styles.descricao}></View>
-                            <View style={styles.favButton}>
-                                <View style={styles.button}></View>
+                            <View style={styles.titulo}>
+                                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#8b8a7a' }}>Zamioculca</Text>
                             </View>
-
+                            <View style={styles.descricao}>
+                                <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#8b8a7a' }}>
+                                    A Zamioculca é uma planta originária da Tanzânia, na África.
+                                    Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
+                                </Text>
+                            </View>
+                            <View style={styles.favButton}>
+                                <View style={styles.button}>
+                                    {/* <Button>
+                                        <Image
+                                            source={require('')}
+                                        />
+                                    </Button> */}
+                                </View>
+                            </View>
                         </View>
 
                     </View>
+
+                    <View style={styles.linha}></View>
+
+
 
                 </View>
             </ScrollView>
