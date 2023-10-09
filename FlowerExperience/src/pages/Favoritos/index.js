@@ -9,9 +9,7 @@ export default function App() {
     return (
         <View style={styles.container}>
             <Header />
-            <ScrollView style={styles.ScrollTamanho}>
             <Body />
-            </ScrollView>
             <Footer />
             <StatusBar style="auto" />
         </View>
@@ -43,12 +41,12 @@ const styles = StyleSheet.create({
 
     //Meio
     Body: {
-        // height: window.height * 0.8, // 60% da altura da janela
-        // borderRadius: 20,
-        // marginLeft: '2%',
-        // marginRight: '2%',
-        // backgroundColor: '#eaead4',
-        // alignItems: 'center',
+        height: window.height * 0.8, // 60% da altura da janela
+        borderRadius: 20,
+        marginLeft: '2%',
+        marginRight: '2%',
+        backgroundColor: '#eaead4',
+        alignItems: 'center',
     },
 
     conteudo: {
@@ -57,61 +55,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         margin: 10,
         alignItems: 'center',
-    },
-
-    card: {
-        height: 150,
-        backgroundColor: 'green',
-        flexDirection: 'row',
-    },
-
-    image: {
-        backgroundColor: 'blue',
-        height: 125,
-        width: '35%',
-    },
-
-    elementos: {
-        backgroundColor: 'purple',
-        height: 150,
-        width: '65%',
-    },
-
-    titulo: {
-        backgroundColor: 'red',
-        height: 35,
-        width: '65%',
-        alignItems: 'center',
-    },
-
-    descricao: {
-        backgroundColor: 'white',
-        height: 65,
-        width: '100%',
-        alignItems: 'center',
-    },
-
-    favButton: {
-        backgroundColor: 'black',
-        height: 50,
-        width: '100%',
-        alignItems: 'flex-end'
-
-    },
-
-    button: {
-        backgroundColor: 'pink',
-        height: 50,
-        width: '25%',
-        alignItems: 'center',
-    },
-
-    linha: {
-        backgroundColor: '#8b8a7a',
-        height: 3,
-        width: '90%',
-        marginTop: 10,
-        marginBottom: 10,
     },
 
     //Baixo
@@ -159,13 +102,7 @@ const styles = StyleSheet.create({
 
     //estilização da ScrollTamanho
     ScrollTamanho: {
-        // backgroundColor: 'green',
-        height: window.height * 0.8, // 60% da altura da janela
-        borderRadius: 20,
-        marginLeft: '2%',
-        marginRight: '2%',
-        backgroundColor: '#eaead4',
-        
+        backgroundColor: 'red',
     },
 
 });
@@ -203,40 +140,10 @@ function Body() {
 
         <View style={styles.Body}>
 
+            <ScrollView>
                 <View style={styles.conteudo}>
-                    <View style={styles.card}>
-
-                        <View style={styles.image}>
-                            {/* <Image source={require('')} /> */}
-                        </View>
-                        <View style={styles.elementos}>
-                            <View style={styles.titulo}>
-                                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#8b8a7a' }}>Zamioculca</Text>
-                            </View>
-                            <View style={styles.descricao}>
-                                <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#8b8a7a' }}>
-                                    A Zamioculca é uma planta originária da Tanzânia, na África.
-                                    Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
-                                </Text>
-                            </View>
-                            <View style={styles.favButton}>
-                                <View style={styles.button}>
-                                    {/* <Button>
-                                        <Image
-                                            source={require('')}
-                                        />
-                                    </Button> */}
-                                </View>
-                            </View>
-                        </View>
-
-                    </View>
-
-                    <View style={styles.linha}></View>
-
-
-
                 </View>
+            </ScrollView>
 
         </View>
 
@@ -255,7 +162,7 @@ function Footer() {
             <View style={styles.footerEsquerda}>
                 <TouchableOpacity>
                     <FontAwesome
-                        name='user'
+                        name='search'
                         size={60}
                         color='#8b8a7a'
                     />
@@ -265,7 +172,7 @@ function Footer() {
             <View style={styles.footerMeio}>
                 <TouchableOpacity style={{ marginTop: 10 }}>
                     <FontAwesome
-                        name='tree'
+                        name='star'
                         size={65}
                         color='#8b8a7a'
                     />
@@ -273,9 +180,9 @@ function Footer() {
             </View>
 
             <View style={styles.footerDireita}>
-                <TouchableOpacity onPress={() => navigation.navigate('Favoritos')}>
+                <TouchableOpacity>
                     <FontAwesome
-                        name='star'
+                        name='tree'
                         size={60}
                         color='#8b8a7a'
                     />
