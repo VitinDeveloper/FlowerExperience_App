@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         width: '65%',
     },
 
-    titulo: {
+    nomePlanta: {
         backgroundColor: 'red',
         height: 35,
         width: '65%',
@@ -210,7 +210,7 @@ function Body() {
                             {/* <Image source={require('')} /> */}
                         </View>
                         <View style={styles.elementos}>
-                            <View style={styles.titulo}>
+                            <View style={styles.nomePlanta}>
                                 <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#8b8a7a' }}>Zamioculca</Text>
                             </View>
                             <View style={styles.descricao}>
@@ -263,7 +263,7 @@ function Footer() {
             </View>
 
             <View style={styles.footerMeio}>
-                <TouchableOpacity style={{ marginTop: 10 }}>
+                <TouchableOpacity onPress={() => navigation.navigate('Feed')} style={{ marginTop: 10 }}>
                     <FontAwesome
                         name='tree'
                         size={65}
