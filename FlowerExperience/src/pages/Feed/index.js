@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text, Button } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
 import Feather from "@expo/vector-icons/Feather"; //importar icones da rede
 
@@ -10,7 +10,7 @@ export default function App() {
         <View style={styles.container}>
             <Header />
             <ScrollView style={styles.ScrollTamanho}>
-            <Body />
+                <Body />
             </ScrollView>
             <Footer />
             <StatusBar style="auto" />
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     },
 
     conteudo: {
-        backgroundColor: 'red',
         flex: 1,
         flexDirection: 'column',
         margin: 10,
@@ -61,49 +60,60 @@ const styles = StyleSheet.create({
 
     card: {
         height: 150,
-        backgroundColor: 'green',
         flexDirection: 'row',
     },
 
-    image: {
-        backgroundColor: 'blue',
+    principalImage: {
         height: 125,
         width: '35%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    image: {
+        backgroundColor: 'white',
+        height: 100,
+        width: '80%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 15, // Borda arredondada
+        borderWidth: 3, // Largura da borda
+        borderColor: '#24c28ded', // Cor da borda
     },
 
     elementos: {
-        backgroundColor: 'purple',
         height: 150,
         width: '65%',
     },
 
     nomePlanta: {
-        backgroundColor: 'red',
         height: 35,
         width: '65%',
         alignItems: 'center',
     },
 
     descricao: {
-        backgroundColor: 'white',
         height: 65,
         width: '100%',
         alignItems: 'center',
     },
 
-    favButton: {
-        backgroundColor: 'black',
+    principalBtn: {
         height: 50,
         width: '100%',
         alignItems: 'flex-end'
 
     },
 
-    button: {
-        backgroundColor: 'pink',
-        height: 50,
-        width: '25%',
+    btn: {
+        backgroundColor: '#24c28ded',
+        height: 45,
+        width: '20%',
         alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 25,
+        marginTop: 3,
+        marginRight: 5
     },
 
     linha: {
@@ -165,7 +175,7 @@ const styles = StyleSheet.create({
         marginLeft: '2%',
         marginRight: '2%',
         backgroundColor: '#eaead4',
-        
+
     },
 
 });
@@ -203,40 +213,171 @@ function Body() {
 
         <View style={styles.Body}>
 
-                <View style={styles.conteudo}>
-                    <View style={styles.card}>
+            <View style={styles.conteudo}>
 
+                {/* Card 1 */}
+
+                <View style={styles.card}>
+
+                    <View style={styles.principalImage}>
                         <View style={styles.image}>
-                            {/* <Image source={require('')} /> */}
+                            <FontAwesome
+                                name='tree'
+                                size={70}
+                                color='#24c28ded'
+                            />
                         </View>
-                        <View style={styles.elementos}>
-                            <View style={styles.nomePlanta}>
-                                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#8b8a7a' }}>Zamioculca</Text>
-                            </View>
-                            <View style={styles.descricao}>
-                                <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#8b8a7a' }}>
-                                    A Zamioculca é uma planta originária da Tanzânia, na África.
-                                    Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
-                                </Text>
-                            </View>
-                            <View style={styles.favButton}>
-                                <View style={styles.button}>
-                                    {/* <Button>
-                                        <Image
-                                            source={require('')}
-                                        />
-                                    </Button> */}
-                                </View>
+                    </View>
+                    <View style={styles.elementos}>
+                        <View style={styles.nomePlanta}>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Zamioculca</Text>
+                        </View>
+                        <View style={styles.descricao}>
+                            <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                A Zamioculca é uma planta originária da Tanzânia, na África.
+                                Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
+                            </Text>
+                        </View>
+                        <View style={styles.principalBtn}>
+                            <View style={styles.btn}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={40}
+                                        color='white'
+                                    />
+                                </TouchableOpacity>
                             </View>
                         </View>
-
                     </View>
 
-                    <View style={styles.linha}></View>
+                </View>
 
+                <View style={styles.linha}></View>
 
+                {/* Card 2 */}
+
+                <View style={styles.card}>
+
+                    <View style={styles.principalImage}>
+                        <View style={styles.image}>
+                            <FontAwesome
+                                name='tree'
+                                size={70}
+                                color='#24c28ded'
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.elementos}>
+                        <View style={styles.nomePlanta}>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 55, }}>Dipladenia</Text>
+                        </View>
+                        <View style={styles.descricao}>
+                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                A dipladenia, também conhecida como mandevilla,
+                                é uma flor exuberante e encantadora que atrai
+                                a atenção com sua beleza e versatilidade.
+                            </Text>
+                        </View>
+                        <View style={styles.principalBtn}>
+                            <View style={styles.btn}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={40}
+                                        color='white'
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
 
                 </View>
+
+                <View style={styles.linha}></View>
+
+                {/* Card 3 */}
+
+                <View style={styles.card}>
+
+                    <View style={styles.principalImage}>
+                        <View style={styles.image}>
+                            <FontAwesome
+                                name='tree'
+                                size={70}
+                                color='#24c28ded'
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.elementos}>
+                        <View style={styles.nomePlanta}>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Peperomias</Text>
+                        </View>
+                        <View style={styles.descricao}>
+                            <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                As peperomias são plantas famosas por serem extremamente fortes e não exigirem muita manutenção.
+                                Há mais de 1.000 espécies, mas selecionamos 7 tipos de peperomia para você ter em casa.
+                            </Text>
+                        </View>
+                        <View style={styles.principalBtn}>
+                            <View style={styles.btn}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={40}
+                                        color='white'
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+
+                </View>
+
+                <View style={styles.linha}></View>
+
+                {/* Card 4 */}
+
+                <View style={styles.card}>
+
+                    <View style={styles.principalImage}>
+                        <View style={styles.image}>
+                            <FontAwesome
+                                name='tree'
+                                size={70}
+                                color='#24c28ded'
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.elementos}>
+                        <View style={styles.nomePlanta}>
+                            <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#8b8a7a', marginTop: 20, marginRight: 45, }}>Espada-de-são-jorge</Text>
+                        </View>
+                        <View style={styles.descricao}>
+                            <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                A espada-de-são-jorge, espada-de-santa-bárbara ou espada-de-iansă,
+                                também conhecida como língua-de-sogra, rabo-de-lagarto e sansevieria,
+                                é uma planta herbácea de origem africana.
+                            </Text>
+                        </View>
+                        <View style={styles.principalBtn}>
+                            <View style={styles.btn}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={40}
+                                        color='white'
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+
+                </View>
+
+                {/* final dos card */}
+
+            </View>
 
         </View>
 
