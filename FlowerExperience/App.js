@@ -6,6 +6,7 @@ import Feed from "./src/pages/Feed";
 import Favoritos from "./src/pages/Favoritos";
 import Informativo from "./src/pages/Informativo";
 import Perfil from "./src/pages/Perfil";
+import Login from "./src/pages/Login";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,12 @@ export default function App() {
                     headerShown: false,
                   }}
                 name="Perfil" component={Perfil} />
+                <Stack.Screen
+                options={{
+                    title: '',
+                    headerShown: false,
+                  }}
+                name="Login" component={Login} />
             </Stack.Navigator>
         </NavigationContainer>
     )
