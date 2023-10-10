@@ -7,6 +7,7 @@ import Favoritos from "./src/pages/Favoritos";
 import Informativo from "./src/pages/Informativo";
 import Perfil from "./src/pages/Perfil";
 import Login from "./src/pages/Login";
+import Cadastro from "./src/pages/Cadastro";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +44,13 @@ export default function App() {
                     title: '',
                     headerShown: false,
                   }}
-                name="Login" component={Login} />
+                name="Login" component={Login} />             
+                <Stack.Screen
+                options={{
+                    title: '',
+                    headerShown: false,
+                  }}
+                name="Cadastro" component={Cadastro} />             
             </Stack.Navigator>
         </NavigationContainer>
     )
