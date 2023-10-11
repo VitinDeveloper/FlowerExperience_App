@@ -6,6 +6,9 @@ import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da r
 import Feather from "@expo/vector-icons/Feather"; //importar icones da rede
 
 export default function App() {
+
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <Header />
@@ -190,18 +193,20 @@ const styles = StyleSheet.create({
 
 function Header() {
 
+    const navigation = useNavigation();
+
     return (
 
         <View style={styles.Header}>
             <View style={styles.iconsHeader}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
                     <FontAwesome
                         name='bars'
                         size={50}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                     <FontAwesome
                         name='user'
                         size={50}
@@ -231,7 +236,7 @@ function Body() {
                         <View style={styles.image}>
                             <Image
                                 style={styles.plantas}
-                                source={require('./plantas/ZAMIOCULCA1.png')}
+                                source={require('./../../../src/plantas/ZAMIOCULCA1.png')}
                             />
                         </View>
                     </View>
@@ -270,7 +275,7 @@ function Body() {
                         <View style={styles.image}>
                             <Image
                                 style={styles.plantas}
-                                source={require('./plantas/DIPLADENIA1.png')}
+                                source={require('./../../../src/plantas/DIPLADENIA1.png')}
                             />
                         </View>
                     </View>
@@ -310,7 +315,7 @@ function Body() {
                         <View style={styles.image}>
                             <Image
                                 style={styles.plantas}
-                                source={require('./plantas/PEPEROMIA1.png')}
+                                source={require('./../../../src/plantas/PEPEROMIA1.png')}
                             />
                         </View>
                     </View>
@@ -349,7 +354,7 @@ function Body() {
                         <View style={styles.image}>
                             <Image
                                 style={styles.plantas}
-                                source={require('./plantas/ESPADA1.png')}
+                                source={require('./../../../src/plantas/ESPADA1.png')}
                             />
                         </View>
                     </View>
@@ -398,7 +403,7 @@ function Footer() {
         <View style={styles.Footer}>
 
             <View style={styles.footerEsquerda}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Informativo')}>
                     <FontAwesome
                         name='search'
                         size={60}

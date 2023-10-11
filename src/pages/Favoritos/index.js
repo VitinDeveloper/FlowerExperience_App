@@ -177,18 +177,20 @@ const styles = StyleSheet.create({
 
 function Header() {
 
+    const navigation = useNavigation();
+
     return (
 
         <View style={styles.Header}>
             <View style={styles.iconsHeader}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
                     <FontAwesome
                         name='bars'
                         size={50}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                     <FontAwesome
                         name='user'
                         size={50}
@@ -257,7 +259,7 @@ function Footer() {
         <View style={styles.Footer}>
 
             <View style={styles.footerEsquerda}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Informativo')}>
                     <FontAwesome
                         name='search'
                         size={60}

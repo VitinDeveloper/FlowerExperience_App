@@ -324,7 +324,7 @@ function Footer() {
         <View style={styles.Footer}>
 
             <View style={styles.footerEsquerda}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
                     <FontAwesome
                         name='home'
                         size={60}
@@ -334,7 +334,7 @@ function Footer() {
             </View>
 
             <View style={styles.footerMeio}>
-                <TouchableOpacity style={{ marginTop: 10 }}>
+                <TouchableOpacity onPress={() => navigation.navigate('Perfil')} style={{ marginTop: 10 }}>
                     <FontAwesome
                         name='user'
                         size={65}
@@ -344,7 +344,7 @@ function Footer() {
             </View>
 
             <View style={styles.footerDireita}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Favoritos')}>
                     <FontAwesome
                         name='star'
                         size={60}

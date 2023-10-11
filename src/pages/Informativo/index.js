@@ -252,18 +252,20 @@ const styles = StyleSheet.create({
 
 function Header() {
 
+  const navigation = useNavigation();
+
   return (
 
     <View style={styles.Header}>
       <View style={styles.iconsHeader}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
           <FontAwesome
             name='bars'
             size={50}
             color='#8b8a7a'
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
           <FontAwesome
             name='user'
             size={50}
@@ -291,10 +293,10 @@ function Body() {
             <View style={styles.HeaderBodyImagemUm}>
 
               <View style={styles.imagemUm}>
-                {/* <Image
-                  source={imagemPlantas1}
-                  style={{ width: '100%', height: '100%', borderRadius: 20, }}
-                /> */}
+                <Image
+                  source={require('./../../../src/plantas/ZAMIOCULCA1.png')}
+                  style={{ width: '100%', height: '100%', borderRadius: 17, }}
+                />
               </View>
 
             </View>
@@ -308,10 +310,10 @@ function Body() {
           <View style={styles.HeaderBodyDireita}>
 
             <View style={styles.imagemDois}>
-              {/* <Image
-                source={imagemPlantas2}
-                style={{ width: '100%', height: '100%', borderRadius: 20, }}
-              /> */}
+              <Image
+                source={require('./../../../src/plantas/ZAMIOCULCA2.png')}
+                style={{ width: '100%', height: '100%', borderRadius: 17, }}
+              />
             </View>
 
           </View>
@@ -422,7 +424,7 @@ function Footer() {
     <View style={styles.Footer}>
 
       <View style={styles.footerEsquerda}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
           <FontAwesome
             name='home'
             size={60}
@@ -432,7 +434,7 @@ function Footer() {
       </View>
 
       <View style={styles.footerMeio}>
-        <TouchableOpacity style={{ marginTop: 10 }}>
+        <TouchableOpacity onPress={() => navigation.navigate('Informativo')} style={{ marginTop: 10 }}>
           <FontAwesome
             name='search'
             size={50}
@@ -442,7 +444,7 @@ function Footer() {
       </View>
 
       <View style={styles.footerDireita}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Favoritos')}>
           <FontAwesome
             name='star'
             size={60}
