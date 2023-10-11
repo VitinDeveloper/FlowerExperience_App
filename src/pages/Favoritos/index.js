@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     titulo: {
         height: 100,
         justifyContent: 'center',
-    },  
+    },
 
     card: {
         height: 150,

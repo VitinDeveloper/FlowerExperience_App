@@ -2,6 +2,8 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; //importar icones da rede
+import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
+import Feather from "@expo/vector-icons/Feather"; //importar icones da rede
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
@@ -29,17 +31,17 @@ const styles = StyleSheet.create({
 
   //Cima
   Header: {
-    height: '10%',
+    height: window.height * 0.10,
     backgroundColor: '#24c28d',
   },
 
   //Meio
   Body: {
-    height: window.height * 0.80, // 60% da altura da janela
+    height: window.height * 0.85, // 60% da altura da janela
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
     marginLeft: '2%',
     marginRight: '2%',
   },
@@ -48,27 +50,26 @@ const styles = StyleSheet.create({
   HeaderBody: {
     height: window.height * 0.2, // 60% da altura da janela
     justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#eaead4',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    flex: 2,
-    alignItems: 'center',
   },
-  titleBody: {
-    fontSize: 40, // Tamanho do título
-    fontWeight: 'bold', // Negrito
-    marginLeft: 13,
+
+  HeaderBodyText: {
+    fontSize: 40,
     color: '#8b8a7a',
   },
 
   //estilização do MeioBody
   conteudo: {
-    height: window.height * 0.5, // 60% da altura da janela
+    height: window.height * 0.64, // 60% da altura da janela
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#eaead4',
     padding: 10,
-
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
 
   //estilização do BaixoBody
@@ -80,6 +81,49 @@ const styles = StyleSheet.create({
     backgroundColor: '#eaead4',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+  },
+  //Baixo
+  Footer: {
+    height: window.height * 0.10,
+    backgroundColor: '#24c28d',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+
+  //estilização do FooterEsquerda
+  footerEsquerda: {
+    height: '100%',
+    backgroundColor: '#24c28d',
+    width: '20%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  //estilização do FooterMeio
+  footerMeio: {
+    height: '100%',
+    backgroundColor: '#24c28ded',
+    width: '20%',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    display: 'relative',
+    marginTop: -40,
+    borderTopRightRadius: 450,
+    borderTopLeftRadius: 450,
+
+  },
+
+  //estilização do FooterDireita
+  footerDireita: {
+    height: '100%',
+    backgroundColor: '#24c28d',
+    width: '20%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   //estilização dos Inputs da Tela
@@ -105,9 +149,6 @@ const styles = StyleSheet.create({
     flex: 1,
     color: '#8b8a7a',
     fontSize: 18,
-
-
-
   },
 
   //estilização de todos Inputs
@@ -118,52 +159,35 @@ const styles = StyleSheet.create({
 
   //estilização da Escrita de cima Dos inputs
   labelEscritas: {
-    fontSize: 18,
+    fontSize: 22,
     color: '#8b8a7a',
-    fontWeight: 'bold',
-
   },
 
   //estilização dos Botões
   buttonStyle: {
     alignItems: 'center',
     borderRadius: 15,
-    marginTop: 10,
+    marginTop: 50,
     width: '40%',
     height: 40,
     backgroundColor: '#24c28d',
     borderColor: '#24c28d',
-    marginTop: -30,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 20,
   },
 
   //estilização da escrita de dentro dos botões
   nomesBotao: {
-    color: '#eaead4',
+    color: 'white',
     fontSize: 20,
   },
 
-
   //estilização da ScrollTamanho
   ScrollTamanho: {
-    backgroundColor: '#24c28d',
-  },
-
-  esqueciSenha: {
-    justifyContent: 'center',
-    marginTop: 10,
-    fontSize: 15,
-    color: '#2596be'
-
-  },
-
-    horizontalLinha: {
-    borderBottomColor: '#2596be',
-    borderBottomWidth: 1,
-    marginTop: 2,
-    marginBottom: 10,
-
+    marginVertical: 1,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
 
   },
 
@@ -183,17 +207,41 @@ function Body() {
 
   const [input, setInput] = useState(''); //Password
   const [senha, setSenha] = useState(true); //Password
-  const navigation = useNavigation();
+
+  const [input2, setInput2] = useState(''); //ConfirmPassword
+  const [senha2, setSenha2] = useState(true); //ConfirmPassword
 
   return (
 
     <View style={styles.Body}>
 
+
       <View style={styles.HeaderBody}>
-        <Text style={styles.titleBody}>Login</Text>
+
+        <Text style={styles.HeaderBodyText}>Cadastre-se</Text>
+
       </View>
 
       <View style={styles.conteudo}>
+
+
+        <View style={styles.labelContainer}>
+
+          <Text style={styles.labelEscritas}>Nome</Text>
+
+        </View>
+
+        <View style={styles.inputContainer}>
+
+          <Icon name="user" size={30} color="#000" style={styles.icon} />
+
+          <TextInput
+            style={styles.input}
+            placeholderTextColor='#8b8a7a'
+            placeholder="Username"
+          />
+
+        </View>
 
         <View style={styles.labelContainer}>
 
@@ -240,30 +288,61 @@ function Body() {
             }
           </TouchableOpacity>
 
+        </View>
+
+        <View style={styles.labelContainer}>
+
+          <Text style={styles.labelEscritas}>Confirmar Senha</Text>
 
         </View>
 
-        <TouchableOpacity>
-          <Text style={styles.esqueciSenha}>Esqueci minha senha</Text>
-          <View style={styles.horizontalLinha}></View>
-        </TouchableOpacity>
+        <View style={styles.inputContainer}>
 
+          <Icon name="lock" size={30} color="#000" style={styles.icon} />
+
+          <TextInput
+            style={styles.input}
+            placeholder='Confirm Password'
+            placeholderTextColor='#8b8a7a'
+            value={input2}
+            onChangeText={(texto) => setInput2(texto)}
+            secureTextEntry={senha2}
+          />
+
+          <TouchableOpacity style={styles.icon} onPress={() => setSenha2(!senha2)}>
+            {senha2 ?
+              <Ionicons name='eye' color='#8b8a7a' size={25} /> //olho aberto
+              :
+              <Ionicons name='eye-off' color='#8b8a7a' size={25} /> //olho fechado
+            }
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.buttonStyle}>
+
+          <TouchableOpacity style={styles.button}>
+
+            <Text style={styles.nomesBotao}>Cadastrar</Text>
+
+          </TouchableOpacity>
+
+        </View>
       </View>
 
 
-      <View style={styles.FooterBody}>
+      {/* <View style={styles.FooterBody}>
 
-        <TouchableOpacity style={styles.buttonStyle}>
-          <View style={styles.button}>
+        <View style={styles.buttonStyle}>
 
+          <TouchableOpacity style={styles.button}>
 
-            <Text style={styles.nomesBotao}>Entrar</Text>
+            <Text style={styles.nomesBotao}>Cadastrar</Text>
 
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
 
+        </View>
 
-      </View>
+      </View> */}
 
     </View>
 
@@ -275,11 +354,7 @@ function Footer() {
 
   return (
 
-    <View style={styles.Footer}>
-
-
-
-    </View>
+    <View style={styles.Footer}></View>
 
   );
 

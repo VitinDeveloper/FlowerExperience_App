@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        backgroundColor: 'white',
+        backgroundColor: 'red',
         height: 100,
         width: '80%',
         alignItems: 'center',
@@ -79,6 +79,14 @@ const styles = StyleSheet.create({
         borderRadius: 15, // Borda arredondada
         borderWidth: 3, // Largura da borda
         borderColor: '#24c28ded', // Cor da borda
+    },
+
+    plantas: {
+        backgroundColor: 'white',
+        height: 95,
+        width: '100%',
+        borderRadius: 12,
+
     },
 
     elementos: {
@@ -221,10 +229,9 @@ function Body() {
 
                     <View style={styles.principalImage}>
                         <View style={styles.image}>
-                            <FontAwesome
-                                name='tree'
-                                size={70}
-                                color='#24c28ded'
+                            <Image
+                                style={styles.plantas}
+                                source={require('./plantas/ZAMIOCULCA1.png')}
                             />
                         </View>
                     </View>
@@ -261,10 +268,9 @@ function Body() {
 
                     <View style={styles.principalImage}>
                         <View style={styles.image}>
-                            <FontAwesome
-                                name='tree'
-                                size={70}
-                                color='#24c28ded'
+                            <Image
+                                style={styles.plantas}
+                                source={require('./plantas/DIPLADENIA1.png')}
                             />
                         </View>
                     </View>
@@ -302,10 +308,9 @@ function Body() {
 
                     <View style={styles.principalImage}>
                         <View style={styles.image}>
-                            <FontAwesome
-                                name='tree'
-                                size={70}
-                                color='#24c28ded'
+                            <Image
+                                style={styles.plantas}
+                                source={require('./plantas/PEPEROMIA1.png')}
                             />
                         </View>
                     </View>
@@ -342,10 +347,9 @@ function Body() {
 
                     <View style={styles.principalImage}>
                         <View style={styles.image}>
-                            <FontAwesome
-                                name='tree'
-                                size={70}
-                                color='#24c28ded'
+                            <Image
+                                style={styles.plantas}
+                                source={require('./plantas/ESPADA1.png')}
                             />
                         </View>
                     </View>
@@ -396,7 +400,7 @@ function Footer() {
             <View style={styles.footerEsquerda}>
                 <TouchableOpacity>
                     <FontAwesome
-                        name='user'
+                        name='search'
                         size={60}
                         color='#8b8a7a'
                     />
