@@ -90,8 +90,8 @@ const styles = StyleSheet.create({
 
   //imagem
   imagemUm: {
-    height: '85%',
-    width: '90%',
+    height: 150,
+    width: 150,
     backgroundColor: 'white',
     borderWidth: 3,
     borderColor: '#24c28d',
@@ -118,8 +118,8 @@ const styles = StyleSheet.create({
 
   //ImagemDois do CimaBodyDireita
   imagemDois: {
-    height: '70%',
-    width: '90%',
+    height: 150,
+    width: 150,
     backgroundColor: 'white',
     borderWidth: 3,
     borderColor: '#24c28d',
@@ -175,7 +175,10 @@ const styles = StyleSheet.create({
   //Dimensão das Informações
   InformaTextoDiv: {
     height: '80%',
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    marginBottom: 45,
+    padding: 10,
   },
 
 
@@ -189,7 +192,6 @@ const styles = StyleSheet.create({
   //Tamanho das letras nas informações
   TextoDescricao: {
     fontSize: 16,
-    fontWeight: 'bold',
     color: '#8b8a7a',
     marginLeft: 15,
     marginTop: 30,
@@ -261,14 +263,14 @@ function Header() {
         <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
           <FontAwesome
             name='bars'
-            size={50}
+            size={45}
             color='#8b8a7a'
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
           <FontAwesome
             name='user'
-            size={50}
+            size={48}
             color='#8b8a7a'
           />
         </TouchableOpacity>
@@ -303,7 +305,7 @@ function Body() {
 
 
             <View style={styles.HeaderBodyTituloPlanta}>
-              <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#8b8a7a' }}>Zamioculca</Text>
+              <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#8b8a7a', padding: 10, }}>Zamioculca</Text>
             </View>
 
           </View>
@@ -330,7 +332,7 @@ function Body() {
           <View style={styles.InformaTextoDiv}>
 
             <Text style={styles.TextoDescricao}>
-              LUZ: O recomendado é não deixar a planta em sol direto, para evitar que as folhas fiquem amareladas.
+              <b>LUZ:</b> O recomendado é não deixar a planta em sol direto, para evitar que as folhas fiquem amareladas.
               As zamioculcas preferem a luz difusa ou o sol da manhã, e sobrevivem muito bem em ambientes internos.
 
             </Text>
@@ -348,7 +350,7 @@ function Body() {
 
             <Text style={styles.TextoDescricao}>
 
-              ÁGUA: recomenda regá-la de duas a três vezes na semana, no máximo. No inverno, apenas uma rega por semana já é suficiente.
+              <b>ÁGUA:</b> recomenda regá-la de duas a três vezes na semana, no máximo. No inverno, apenas uma rega por semana já é suficiente.
               “Isso acontece porque a zamioculca tem rizoma.
 
             </Text>
@@ -365,7 +367,7 @@ function Body() {
 
           <View style={styles.InformaTextoDiv}>
             <Text style={styles.TextoDescricao}>
-              FERTILIZANTE: E para oferecer minerais adequados para a planta, utilize adubo NPK, que fornece os principais nutrientes
+              <b>FERTILIZANTE:</b> E para oferecer minerais adequados para a planta, utilize adubo NPK, que fornece os principais nutrientes
               para a saúde da planta. A sigla do fertilizante NPK é uma relação dos três nutrientes: Nitrogênio, Fósforo e Potássio.
             </Text>
           </View>
@@ -382,7 +384,7 @@ function Body() {
           <View style={styles.InformaTextoDiv}>
 
             <Text style={styles.TextoDescricao}>
-              ORIGEM: A Zamioculca é uma planta originária da Tanzânia, na África.
+              <b>ORIGEM:</b> A Zamioculca é uma planta originária da Tanzânia, na África.
               Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
 
             </Text>
@@ -393,12 +395,12 @@ function Body() {
 
         <View style={styles.DivBotao}>
 
-          <View style={{ width: '100%', height: '100%', backgroundColor: '#eaead4', justifyContent: 'flex-start', alignItems: 'center', paddingTop: 20, }}>
+          <View style={{ width: '100%', height: '100%', backgroundColor: '#eaead4', justifyContent: 'center', alignItems: 'center', }}>
 
             <TouchableOpacity>
 
-              <View style={{ width: 135, height: 35, backgroundColor: '#24c28d', borderRadius: 20, justifyContent: 'center', alignItems: 'center', }}>
-                <Text style={{ fontSize: 25, color: 'white', }}>+ Favoritar</Text>
+              <View style={{ width: 135, height: 45, backgroundColor: '#24c28d', borderRadius: 20, justifyContent: 'center', alignItems: 'center', }}>
+                <Text style={{ fontSize: 22, color: 'white',marginBottom: 5, }}><b>+</b> Favoritar</Text>
               </View>
 
             </TouchableOpacity>
@@ -427,7 +429,7 @@ function Footer() {
         <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
           <FontAwesome
             name='home'
-            size={60}
+            size={45}
             color='#8b8a7a'
           />
         </TouchableOpacity>
@@ -437,7 +439,7 @@ function Footer() {
         <TouchableOpacity onPress={() => navigation.navigate('Informativo')} style={{ marginTop: 10 }}>
           <FontAwesome
             name='search'
-            size={50}
+            size={55}
             color='#8b8a7a'
           />
         </TouchableOpacity>
@@ -447,7 +449,7 @@ function Footer() {
         <TouchableOpacity onPress={() => navigation.navigate('Favoritos')}>
           <FontAwesome
             name='star'
-            size={60}
+            size={45}
             color='#8b8a7a'
           />
         </TouchableOpacity>

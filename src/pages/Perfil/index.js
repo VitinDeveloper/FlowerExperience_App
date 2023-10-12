@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
 
     //estilização do MeioBody
     conteudo: {
-        height: window.height * 0.5, // 60% da altura da janela
-        justifyContent: 'center',
+        height: '50%', // 60% da altura da janela
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#eaead4',
         padding: 10,
@@ -327,7 +327,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
                     <FontAwesome
                         name='home'
-                        size={60}
+                        size={45}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
@@ -337,7 +337,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Perfil')} style={{ marginTop: 10 }}>
                     <FontAwesome
                         name='user'
-                        size={65}
+                        size={55}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
@@ -347,7 +347,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Favoritos')}>
                     <FontAwesome
                         name='star'
-                        size={60}
+                        size={45}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>

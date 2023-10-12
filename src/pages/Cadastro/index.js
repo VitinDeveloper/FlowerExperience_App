@@ -58,13 +58,14 @@ const styles = StyleSheet.create({
 
   HeaderBodyText: {
     fontSize: 40,
+    fontWeight: 'bold',
     color: '#8b8a7a',
   },
 
   //estilização do MeioBody
   conteudo: {
     height: window.height * 0.64, // 60% da altura da janela
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#eaead4',
     padding: 10,
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#24c28d',
     height: 50,
+    width: '100%',
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
@@ -181,6 +183,7 @@ const styles = StyleSheet.create({
   nomesBotao: {
     color: 'white',
     fontSize: 20,
+    fontWeight: 'bold',
   },
 
   //estilização da ScrollTamanho

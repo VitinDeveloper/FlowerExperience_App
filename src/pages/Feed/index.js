@@ -99,8 +99,7 @@ const styles = StyleSheet.create({
 
     nomePlanta: {
         height: 35,
-        width: '65%',
-        alignItems: 'center',
+        width: '100%',
     },
 
     descricao: {
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
     btn: {
         backgroundColor: '#24c28ded',
         height: 45,
-        width: '20%',
+        width: 45,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 25,
@@ -129,7 +128,7 @@ const styles = StyleSheet.create({
 
     linha: {
         backgroundColor: '#8b8a7a',
-        height: 3,
+        height: 1,
         width: '90%',
         marginTop: 10,
         marginBottom: 10,
@@ -199,17 +198,17 @@ function Header() {
 
         <View style={styles.Header}>
             <View style={styles.iconsHeader}>
-                <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
                     <FontAwesome
                         name='bars'
-                        size={50}
+                        size={45}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                     <FontAwesome
                         name='user'
-                        size={50}
+                        size={48}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
@@ -245,7 +244,7 @@ function Body() {
                             <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Zamioculca</Text>
                         </View>
                         <View style={styles.descricao}>
-                            <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
                                 A Zamioculca é uma planta originária da Tanzânia, na África.
                                 Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
                             </Text>
@@ -255,7 +254,7 @@ function Body() {
                                 <TouchableOpacity>
                                     <FontAwesome
                                         name='plus'
-                                        size={40}
+                                        size={25}
                                         color='white'
                                     />
                                 </TouchableOpacity>
@@ -284,9 +283,9 @@ function Body() {
                             <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 55, }}>Dipladenia</Text>
                         </View>
                         <View style={styles.descricao}>
-                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
                                 A dipladenia, também conhecida como mandevilla,
-                                é uma flor exuberante e encantadora que atrai
+                                é uma flor encantadora que atrai
                                 a atenção com sua beleza e versatilidade.
                             </Text>
                         </View>
@@ -295,7 +294,7 @@ function Body() {
                                 <TouchableOpacity>
                                     <FontAwesome
                                         name='plus'
-                                        size={40}
+                                        size={25}
                                         color='white'
                                     />
                                 </TouchableOpacity>
@@ -321,12 +320,12 @@ function Body() {
                     </View>
                     <View style={styles.elementos}>
                         <View style={styles.nomePlanta}>
-                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Peperomias</Text>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Peperomia</Text>
                         </View>
                         <View style={styles.descricao}>
-                            <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
-                                As peperomias são plantas famosas por serem extremamente fortes e não exigirem muita manutenção.
-                                Há mais de 1.000 espécies, mas selecionamos 7 tipos de peperomia para você ter em casa.
+                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                As peperomias são plantas extremamente fortes e não exigirem muita manutenção.
+                                Há mais de 1.000 espécies.
                             </Text>
                         </View>
                         <View style={styles.principalBtn}>
@@ -334,7 +333,7 @@ function Body() {
                                 <TouchableOpacity>
                                     <FontAwesome
                                         name='plus'
-                                        size={40}
+                                        size={25}
                                         color='white'
                                     />
                                 </TouchableOpacity>
@@ -360,12 +359,11 @@ function Body() {
                     </View>
                     <View style={styles.elementos}>
                         <View style={styles.nomePlanta}>
-                            <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#8b8a7a', marginTop: 20, marginRight: 45, }}>Espada-de-são-jorge</Text>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Espada São Jorge</Text>
                         </View>
                         <View style={styles.descricao}>
-                            <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
-                                A espada-de-são-jorge, espada-de-santa-bárbara ou espada-de-iansă,
-                                também conhecida como língua-de-sogra, rabo-de-lagarto e sansevieria,
+                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                A espada-de-são-jorge, também conhecida como língua-de-sogra, e sansevieria,
                                 é uma planta herbácea de origem africana.
                             </Text>
                         </View>
@@ -374,7 +372,7 @@ function Body() {
                                 <TouchableOpacity>
                                     <FontAwesome
                                         name='plus'
-                                        size={40}
+                                        size={25}
                                         color='white'
                                     />
                                 </TouchableOpacity>
@@ -406,7 +404,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Informativo')}>
                     <FontAwesome
                         name='search'
-                        size={60}
+                        size={45}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
@@ -416,7 +414,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Feed')} style={{ marginTop: 10 }}>
                     <FontAwesome
                         name='tree'
-                        size={65}
+                        size={55}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
@@ -426,7 +424,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Favoritos')}>
                     <FontAwesome
                         name='star'
-                        size={60}
+                        size={45}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>

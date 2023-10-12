@@ -38,10 +38,11 @@ const styles = StyleSheet.create({
     height: window.height * 0.80, // 60% da altura da janela
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
     marginLeft: '2%',
     marginRight: '2%',
+    backgroundColor: '#eaead4',
   },
 
   //estilização do CimaBody
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#24c28d',
     height: 50,
+    width: '100%',
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
@@ -133,9 +135,10 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: '#24c28d',
     borderColor: '#24c28d',
-    marginTop: -30,
+    marginTop: -120,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
 
   //estilização da escrita de dentro dos botões
