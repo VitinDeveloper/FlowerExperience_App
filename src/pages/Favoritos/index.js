@@ -1,11 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text, Button } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
 import Feather from "@expo/vector-icons/Feather"; //importar icones da rede
 
 export default function App() {
+
     return (
         <View style={styles.container}>
             <Header />
@@ -21,7 +22,6 @@ export default function App() {
 const window = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-
     container: {
         flex: 1,
         backgroundColor: '#24c28d',
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     },
 
     conteudo: {
-        backgroundColor: 'red',
         flex: 1,
         flexDirection: 'column',
         margin: 10,
@@ -62,59 +61,89 @@ const styles = StyleSheet.create({
 
     titulo: {
         height: 100,
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
 
     card: {
         height: 150,
-        backgroundColor: 'green',
         flexDirection: 'row',
     },
 
-    image: {
-        backgroundColor: 'blue',
+    principalImage: {
         height: 125,
         width: '35%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    image: {
+        backgroundColor: 'red',
+        height: 100,
+        width: '80%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 15, // Borda arredondada
+        borderWidth: 3, // Largura da borda
+        borderColor: '#24c28ded', // Cor da borda
+    },
+
+    plantas: {
+        backgroundColor: 'white',
+        height: 95,
+        width: '100%',
+        borderRadius: 12,
+
     },
 
     elementos: {
-        backgroundColor: 'purple',
         height: 150,
         width: '65%',
     },
 
     nomePlanta: {
-        backgroundColor: 'red',
         height: 35,
-        width: '65%',
-        alignItems: 'center',
+        width: '100%',
     },
 
     descricao: {
-        backgroundColor: 'white',
         height: 65,
         width: '100%',
         alignItems: 'center',
     },
 
-    favButton: {
-        backgroundColor: 'black',
+    principalBtn: {
         height: 50,
         width: '100%',
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        flexDirection: 'row',
 
     },
 
-    button: {
-        backgroundColor: 'pink',
-        height: 50,
-        width: '25%',
+    btnUm: {
+        backgroundColor: '#24c28ded',
+        height: 45,
+        width: 45,
         alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 25,
+        marginTop: 3,
+        marginRight: 5
+    },
+    btnDois: {
+        backgroundColor: 'red',
+        height: 45,
+        width: 45,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 25,
+        marginTop: 3,
+        marginRight: 5
     },
 
     linha: {
         backgroundColor: '#8b8a7a',
-        height: 3,
+        height: 1,
         width: '90%',
         marginTop: 10,
         marginBottom: 10,
@@ -165,12 +194,13 @@ const styles = StyleSheet.create({
 
     //estilização da ScrollTamanho
     ScrollTamanho: {
-        // backgroundColor: 'red',
+        // backgroundColor: 'green',
         height: window.height * 0.8, // 60% da altura da janela
         borderRadius: 20,
         marginLeft: '2%',
         marginRight: '2%',
         backgroundColor: '#eaead4',
+
     },
 
 });
@@ -186,14 +216,14 @@ function Header() {
                 <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
                     <FontAwesome
                         name='bars'
-                        size={50}
+                        size={45}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                     <FontAwesome
                         name='user'
-                        size={50}
+                        size={48}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
@@ -210,38 +240,209 @@ function Body() {
 
         <View style={styles.Body}>
 
-
             <View style={styles.conteudo}>
+
                 <View style={styles.titulo}>
                     <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Minhas Favoritas</Text>
                 </View>
-                <View style={styles.listaFavoritos}>
-                    <View style={styles.card}>
 
+                {/* Card 1 */}
+
+                <View style={styles.card}>
+
+                    <View style={styles.principalImage}>
                         <View style={styles.image}>
-                            {/* <Image source={require('')} /> */}
+                            <Image
+                                style={styles.plantas}
+                                source={require('./../../../src/plantas/ZAMIOCULCA1.png')}
+                            />
                         </View>
-                        <View style={styles.elementos}>
-                            <View style={styles.nomePlanta}>
-                                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#8b8a7a' }}>Zamioculca</Text>
+                    </View>
+                    <View style={styles.elementos}>
+                        <View style={styles.nomePlanta}>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Zamioculca</Text>
+                        </View>
+                        <View style={styles.descricao}>
+                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                A Zamioculca é uma planta originária da Tanzânia, na África.
+                                Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
+                            </Text>
+                        </View>
+                        <View style={styles.principalBtn}>
+                            <View style={styles.btnUm}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={25}
+                                        color='white'
+                                    />
+                                </TouchableOpacity>
                             </View>
-                            <View style={styles.descricao}>
-                                <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#8b8a7a' }}>
-                                    A Zamioculca é uma planta originária da Tanzânia, na África.
-                                    Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
-                                </Text>
-                            </View>
-                            <View style={styles.favButton}>
-                                <View style={styles.button}>
-                                    {/* <Button>
-                                        <Image source={require('')} />
-                                    </Button> */}
-                                </View>
+                            <View style={styles.btnDois}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={25}
+                                        color='white'
+                                        style={{ transform: [{ rotate: '45deg' }] }} //style pra deixar o icone na posição de um X
+                                    />
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>
-                    <View style={styles.linha}></View>
+
                 </View>
+
+                <View style={styles.linha}></View>
+
+                {/* Card 2 */}
+
+                <View style={styles.card}>
+
+                    <View style={styles.principalImage}>
+                        <View style={styles.image}>
+                            <Image
+                                style={styles.plantas}
+                                source={require('./../../../src/plantas/DIPLADENIA1.png')}
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.elementos}>
+                        <View style={styles.nomePlanta}>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 55, }}>Dipladenia</Text>
+                        </View>
+                        <View style={styles.descricao}>
+                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                A dipladenia, também conhecida como mandevilla,
+                                é uma flor encantadora que atrai
+                                a atenção com sua beleza e versatilidade.
+                            </Text>
+                        </View>
+                        <View style={styles.principalBtn}>
+                        <View style={styles.btnUm}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={25}
+                                        color='white'
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.btnDois}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={25}
+                                        color='white'
+                                        style={{ transform: [{ rotate: '45deg' }] }} //style pra deixar o icone na posição de um X
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+
+                </View>
+
+                <View style={styles.linha}></View>
+
+                {/* Card 3 */}
+
+                <View style={styles.card}>
+
+                    <View style={styles.principalImage}>
+                        <View style={styles.image}>
+                            <Image
+                                style={styles.plantas}
+                                source={require('./../../../src/plantas/PEPEROMIA1.png')}
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.elementos}>
+                        <View style={styles.nomePlanta}>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Peperomia</Text>
+                        </View>
+                        <View style={styles.descricao}>
+                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                As peperomias são plantas extremamente fortes e não exigirem muita manutenção.
+                                Há mais de 1.000 espécies.
+                            </Text>
+                        </View>
+                        <View style={styles.principalBtn}>
+                        <View style={styles.btnUm}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={25}
+                                        color='white'
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.btnDois}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={25}
+                                        color='white'
+                                        style={{ transform: [{ rotate: '45deg' }] }} //style pra deixar o icone na posição de um X
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+
+                </View>
+
+                <View style={styles.linha}></View>
+
+                {/* Card 4 */}
+
+                <View style={styles.card}>
+
+                    <View style={styles.principalImage}>
+                        <View style={styles.image}>
+                            <Image
+                                style={styles.plantas}
+                                source={require('./../../../src/plantas/ESPADA1.png')}
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.elementos}>
+                        <View style={styles.nomePlanta}>
+                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Espada São Jorge</Text>
+                        </View>
+                        <View style={styles.descricao}>
+                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
+                                A espada-de-são-jorge, também conhecida como língua-de-sogra, e sansevieria,
+                                é uma planta herbácea de origem africana.
+                            </Text>
+                        </View>
+                        <View style={styles.principalBtn}>
+                        <View style={styles.btnUm}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={25}
+                                        color='white'
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.btnDois}>
+                                <TouchableOpacity>
+                                    <FontAwesome
+                                        name='plus'
+                                        size={25}
+                                        color='white'
+                                        style={{ transform: [{ rotate: '45deg' }] }} //style pra deixar o icone na posição de um X
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+
+                </View>
+
+                {/* final dos card */}
+
             </View>
 
         </View>
@@ -262,7 +463,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Informativo')}>
                     <FontAwesome
                         name='search'
-                        size={60}
+                        size={45}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
@@ -272,7 +473,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Favoritos')} style={{ marginTop: 10 }}>
                     <FontAwesome
                         name='star'
-                        size={65}
+                        size={55}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
@@ -282,7 +483,7 @@ function Footer() {
                 <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
                     <FontAwesome
                         name='tree'
-                        size={60}
+                        size={45}
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>

@@ -7,8 +7,6 @@ import Feather from "@expo/vector-icons/Feather"; //importar icones da rede
 
 export default function App() {
 
-    const navigation = useNavigation();
-
     return (
         <View style={styles.container}>
             <Header />
@@ -198,7 +196,7 @@ function Header() {
 
         <View style={styles.Header}>
             <View style={styles.iconsHeader}>
-                <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
                     <FontAwesome
                         name='bars'
                         size={45}
