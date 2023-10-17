@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text, Button } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, Dimensions, Image, Text } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
 import Feather from "@expo/vector-icons/Feather"; //importar icones da rede
 
@@ -150,8 +150,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
 
-  //Emogi das Informações
-  Emogi: {
+  //emoji das Informações
+  emoji: {
     marginLeft: 10,
     height: '130px',
     width: '75px',
@@ -181,12 +181,10 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-
-  Textotitulo: {
-    fontSize: 25,
+  tituloDescricao: {
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#8b8a7a',
-    marginLeft: 30
   },
 
   //Tamanho das letras nas informações
@@ -305,7 +303,7 @@ function Body() {
 
 
             <View style={styles.HeaderBodyTituloPlanta}>
-              <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#8b8a7a', padding: 10, }}>Zamioculca</Text>
+              <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#8b8a7a' }}>Zamioculca</Text>
             </View>
 
           </View>
@@ -323,18 +321,19 @@ function Body() {
 
         <View style={styles.DivInforma}>
 
-          <View style={styles.Emogi}>
+          <View style={styles.emoji}>
 
             <Text style={{ fontSize: 35 }}>☀️</Text>
 
           </View>
 
           <View style={styles.InformaTextoDiv}>
-
-            <Text style={styles.TextoDescricao}>
-              <b>LUZ:</b> O recomendado é não deixar a planta em sol direto, para evitar que as folhas fiquem amareladas.
-              As zamioculcas preferem a luz difusa ou o sol da manhã, e sobrevivem muito bem em ambientes internos.
-
+            <Text>
+              <Text style={styles.tituloDescricao}>LUZ: </Text>
+              <Text style={styles.TextoDescricao}>
+                O recomendado é não deixar a planta em sol direto, para evitar que as folhas fiquem amareladas.
+                As zamioculcas preferem a luz difusa ou o sol da manhã, e sobrevivem muito bem em ambientes internos.
+              </Text>
             </Text>
           </View>
         </View>
@@ -343,16 +342,16 @@ function Body() {
 
         <View style={styles.DivInforma}>
 
-          <View style={styles.Emogi}>
+          <View style={styles.emoji}>
             <Text style={{ fontSize: 35 }}>💧</Text>
           </View>
           <View style={styles.InformaTextoDiv}>
-
-            <Text style={styles.TextoDescricao}>
-
-              <b>ÁGUA:</b> recomenda regá-la de duas a três vezes na semana, no máximo. No inverno, apenas uma rega por semana já é suficiente.
-              “Isso acontece porque a zamioculca tem rizoma.
-
+            <Text>
+              <Text style={styles.tituloDescricao}>ÁGUA: </Text>
+              <Text style={styles.TextoDescricao}>
+                Recomenda regá-la de duas a três vezes na semana, no máximo. No inverno, apenas uma rega por semana já é suficiente.
+                Isso acontece porque a zamioculca tem rizoma.
+              </Text>
             </Text>
           </View>
         </View>
@@ -361,14 +360,17 @@ function Body() {
         <View style={styles.DivInforma}>
 
 
-          <View style={styles.Emogi}>
+          <View style={styles.emoji}>
             <Text style={{ fontSize: 35 }}>🌱</Text>
           </View>
 
           <View style={styles.InformaTextoDiv}>
-            <Text style={styles.TextoDescricao}>
-              <b>FERTILIZANTE:</b> E para oferecer minerais adequados para a planta, utilize adubo NPK, que fornece os principais nutrientes
-              para a saúde da planta. A sigla do fertilizante NPK é uma relação dos três nutrientes: Nitrogênio, Fósforo e Potássio.
+            <Text>
+              <Text style={styles.tituloDescricao}>FERTILIZANTE: </Text>
+              <Text style={styles.TextoDescricao}>
+                E para oferecer minerais adequados para a planta, utilize adubo NPK, que fornece os principais nutrientes
+                para a saúde da planta. A sigla do fertilizante NPK é uma relação dos três nutrientes: Nitrogênio, Fósforo e Potássio.
+              </Text>
             </Text>
           </View>
 
@@ -378,15 +380,16 @@ function Body() {
 
         <View style={styles.DivInforma}>
 
-          <View style={styles.Emogi}>
+          <View style={styles.emoji}>
             <Text style={{ fontSize: 35 }}>📍</Text>
           </View>
           <View style={styles.InformaTextoDiv}>
-
-            <Text style={styles.TextoDescricao}>
-              <b>ORIGEM:</b> A Zamioculca é uma planta originária da Tanzânia, na África.
-              Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
-
+            <Text>
+              <Text style={styles.tituloDescricao}>ORIGEM: </Text>
+              <Text style={styles.TextoDescricao}>
+                A Zamioculca é uma planta originária da Tanzânia, na África.
+                Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.
+              </Text>
             </Text>
           </View>
         </View>
@@ -400,7 +403,7 @@ function Body() {
             <TouchableOpacity>
 
               <View style={{ width: 135, height: 45, backgroundColor: '#24c28d', borderRadius: 20, justifyContent: 'center', alignItems: 'center', }}>
-                <Text style={{ fontSize: 22, color: 'white',marginBottom: 5, }}><b>+</b> Favoritar</Text>
+                <Text style={{ fontSize: 22, color: 'white', marginBottom: 5, }}> + Favoritar </Text>
               </View>
 
             </TouchableOpacity>
