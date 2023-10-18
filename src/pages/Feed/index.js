@@ -219,6 +219,8 @@ function Header() {
 
 function Body() {
 
+    const navigation = useNavigation();
+
     return (
 
         <View style={styles.Body}>
@@ -249,7 +251,7 @@ function Body() {
                         </View>
                         <View style={styles.principalBtn}>
                             <View style={styles.btn}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.navigate('Zamioculca')}>
                                     <FontAwesome
                                         name='plus'
                                         size={25}
@@ -289,7 +291,7 @@ function Body() {
                         </View>
                         <View style={styles.principalBtn}>
                             <View style={styles.btn}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.navigate('Dipladenia')}>
                                     <FontAwesome
                                         name='plus'
                                         size={25}
@@ -328,7 +330,7 @@ function Body() {
                         </View>
                         <View style={styles.principalBtn}>
                             <View style={styles.btn}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.navigate('Peperomia')}>
                                     <FontAwesome
                                         name='plus'
                                         size={25}
@@ -367,7 +369,7 @@ function Body() {
                         </View>
                         <View style={styles.principalBtn}>
                             <View style={styles.btn}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.navigate('Espada')}>
                                     <FontAwesome
                                         name='plus'
                                         size={25}
