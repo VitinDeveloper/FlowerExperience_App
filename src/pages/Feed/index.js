@@ -203,7 +203,7 @@ function Header() {
                         color='#8b8a7a'
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
                     <FontAwesome
                         name='user'
                         size={48}
