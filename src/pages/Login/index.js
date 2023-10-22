@@ -192,6 +192,7 @@ function Body() {
     const [inputSenha, setInputSenha] = useState(true);
 
     return (
+        
         <View style={styles.Body}>
             <View style={styles.HeaderBody}>
                 <Text style={styles.titleBody}>Login</Text>
@@ -256,6 +257,7 @@ function Body() {
 
     // Função para lidar com o evento de login
     function Login() {
+
     console.log(objetoRecebidoCadastro)
     if (entradaNome === '' || entradaSenha === '') {
         alert('Preencha todos os campos');
@@ -271,7 +273,9 @@ function Body() {
             alert('Login bem-sucedido!')
             navigation.navigate('Feed', { objetoLogin: armazenandoLogin })
         }
+
     }
+
 }
 
 // Função para renderizar a parte inferior (Footer)
