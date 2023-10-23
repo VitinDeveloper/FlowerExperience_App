@@ -22,15 +22,11 @@ export default function App() {
 const window = Dimensions.get('window');
 
 const styles = StyleSheet.create({
+
     grid: {
         flexDirection: 'column',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
         alignItems: 'center',
-
     },
-
-
 
     container: {
         flex: 1,
@@ -66,19 +62,18 @@ const styles = StyleSheet.create({
         height: 200,
         flexDirection: 'column',
         width: '95%',
-  
-
+        alignItems: 'center',
     },
 
     principalImage: {
-        height: 200,
-        width: '35%',
+        height: 110,
+        width: 130,
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 35,
     },
 
     image: {
-
         height: '150px',
         width: '80%',
         alignItems: 'center',
@@ -93,7 +88,6 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         borderRadius: 12,
-
     },
 
     elementos: {
@@ -116,9 +110,9 @@ const styles = StyleSheet.create({
     principalBtn: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end', // Align content to the end
-        alignItems: 'flex-end', // Align content to the end
-        paddingRight: 15, // Add padding for spacing
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        paddingRight: 15,
     },
     btn: {
         backgroundColor: '#24c28ded',
@@ -135,7 +129,6 @@ const styles = StyleSheet.create({
         width: '90%',
         marginTop: 5,
         marginBottom: 5,
-
     },
 
     //Baixo
@@ -168,7 +161,6 @@ const styles = StyleSheet.create({
         marginTop: -40,
         borderTopRightRadius: 450,
         borderTopLeftRadius: 500,
-
     },
 
     //estilização do FooterDireita
@@ -232,7 +224,6 @@ let plantInfo = [
         origem: "A Zamioculca é uma planta originária da Tanzânia, na África. Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.",
         imagensUm: require('./../../../src/plantas/ZAMIOCULCA1.png'),
         imagensDois: require('./../../../src/plantas/ZAMIOCULCA2.png')
-
     },
     {
         titulo: "Dipladenia",
@@ -368,7 +359,7 @@ function Body() {
                             </View>
                         </View>
 
-                        <View style={styles.linha}></View> {/* Add this line */}
+                        <View style={styles.linha}></View>
                     </View>
 
                 ))}
