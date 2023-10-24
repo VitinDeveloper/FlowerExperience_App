@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     grid: {
         flexDirection: 'column',
         alignItems: 'center',
+        marginBottom: 15,
     },
 
     container: {
@@ -104,7 +105,6 @@ const styles = StyleSheet.create({
     descricao: {
         height: 'auto',
         width: '100%',
-        alignItems: 'center',
     },
 
     principalBtn: {
@@ -216,12 +216,14 @@ function Header() {
 }
 
 let plantInfo = [
+
     {
         titulo: "Zamioculca",
+        sobre: "A Zamioculca é uma planta originária da Tanzânia, na África. Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.",
         luz: "O recomendado é não deixar a planta em sol direto, para evitar que as folhas fiquem amareladas. As zamioculcas preferem a luz difusa ou o sol da manhã, e sobrevivem muito bem em ambientes internos.",
         rega: "Recomenda-se regá-la de duas a três vezes na semana, no máximo. No inverno, apenas uma rega por semana já é suficiente. Isso acontece porque a zamioculca tem rizoma.",
         fertilizante: "Para oferecer minerais adequados para a planta, utilize fertilizante NPK, que fornece os principais nutrientes para a saúde da planta. A sigla do fertilizante NPK é uma relação dos três nutrientes: Nitrogênio, Fósforo e Potássio.",
-        origem: "A Zamioculca é uma planta originária da Tanzânia, na África. Ela pertence à família das Araceae e seu nome científico é Zamioculcas Zamiifolia.",
+        origem: "A Zamioculca é uma planta originária da Tanzânia, na África.",
         imagensUm: require('./../../../src/plantas/ZAMIOCULCA1.png'),
         imagensDois: require('./../../../src/plantas/ZAMIOCULCA2.png')
     },
@@ -313,7 +315,7 @@ let plantInfo = [
         fertilizante: "Durante a estação de crescimento (na Primavera e Verão), fertiliza a planta 1 vez por mês com adubo líquido 20-20-20. Não coloque a begônia num vaso demasiado grande pois a floração é mais intensa quando a planta sente as raízes um pouco apertadas no vaso.",
         origem: "As begónias provêm principalmente da América tropical, de florestas úmidas ou nichos de umidade das savanas.",
         imagensUm: require('./../../../src/plantas/BEGONIA1.png'),
-        imagensDois: require('./../../../src/plantas/BEGONIA2.png')
+        imagensDois: require('./../../../src/plantas/BEGONIA2.png'),
     },
 
 ]
@@ -342,13 +344,13 @@ function Body() {
                                 </View>
                                 <View style={styles.descricao}>
                                     <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30 }}>
-                                        {objPlanta.origem}
+                                        {objPlanta.sobre}
                                     </Text>
                                 </View>
                             </View>
                             <View style={styles.principalBtn}>
                                 <View style={styles.btn}>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity >
                                         <FontAwesome
                                             name='plus'
                                             size={25}
