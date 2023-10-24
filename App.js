@@ -18,6 +18,7 @@ import Orquidea from "./src/pages_plantas/Orquidea";
 import Peperomia from "./src/pages_plantas/Peperomia";
 import Samambaia from "./src/pages_plantas/Samambaia";
 import Costela from "./src/pages_plantas/Costela";
+import Administrador from "./src/pages/Administrador";
 
 const Stack = createNativeStackNavigator();
 
@@ -121,6 +122,12 @@ export default function App() {
                     headerShown: false,
                   }}
                 name="Bougainville" component={Bougainville} />      
+                <Stack.Screen
+                options={{
+                    title: '',
+                    headerShown: false,
+                  }}
+                name="Administrador" component={Administrador} /> 
             </Stack.Navigator>
         </NavigationContainer>
     )
