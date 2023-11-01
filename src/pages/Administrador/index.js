@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     Header_Body: {
         height: "10%",
         width: "100%",
-        justifyContent:'center',
+        justifyContent: 'center',
         alignItems: 'center',
     },
 
@@ -201,11 +201,45 @@ const styles = StyleSheet.create({
         marginLeft: 20,
     },
 
-    // btn_editar_planta: {
-    //     marginLeft: 
+    btn_excluir_planta: {
+        margin: 10
+    },
+
+    btn_editar_planta: {
+        margin: 10
 
 
-    // },
+    },
+
+    button_add_planta: {
+        alignItems: 'center',
+        borderRadius: 15,
+        marginTop: 50,
+        width: '40%',
+        height: 40,
+        backgroundColor: '#24c28d',
+        borderColor: '#24c28d',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 20
+
+    },
+
+    view_botao: {
+
+        width: '100%',
+        height: 100,
+     
+      
+
+
+    },
+
+    text_add_planta: {
+        color: 'white',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
 });
 
 function Header() {
@@ -250,7 +284,8 @@ let plantas_listadas = [
     {
         titulo: "Begônia",
     },
- 
+  
+
 
 ]
 
@@ -264,11 +299,11 @@ function Body() {
 
             <View style={styles.Header_Body}>
 
-            <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#8b8a7a' }}>Painel Administrador</Text>
+                <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#8b8a7a' }}>Painel Administrador</Text>
 
             </View>
 
-            <View style={styles.linha}></View>  
+            <View style={styles.linha}></View>
 
             <ScrollView contentContainerStyle={styles.grid}>
 
@@ -276,15 +311,17 @@ function Body() {
 
                     <View style={styles.card} key={index}>
 
-                        <View style={{ flexDirection: 'row', height: 38,}}>
-                        
-                            <View style={styles.elementos}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+
+                            <View style={{}}>
                                 <View style={styles.nomePlanta}>
                                     <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginLeft: 20 }}>•  {objPlanta.titulo}</Text>
                                 </View>
                             </View>
 
-                            <View style={styles.btn_editar_planta}>
+                            <View style={{ padding: 1, flexDirection: "row" }}>
+
+                                <View style={styles.btn_editar_planta}>
                                     <TouchableOpacity >
                                         <FontAwesome
                                             name='pencil'
@@ -303,15 +340,27 @@ function Body() {
                                         />
                                     </TouchableOpacity>
                                 </View>
+                            </View>
+
 
                         </View>
-
 
                     </View>
 
                 ))}
-            </ScrollView>
+                <view style={styles.view_botao}>
 
+                    <View style={{width:'100%', justifyContent: 'center', alignItems: 'center'}}>
+
+                        <TouchableOpacity style={styles.button_add_planta} >
+                            <Text style={styles.text_add_planta}>Cadastrar</Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                </view>
+
+            </ScrollView>
 
         </View>
 

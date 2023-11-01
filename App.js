@@ -8,6 +8,7 @@ import Perfil from "./src/pages/Perfil";
 import Login from "./src/pages/Login";
 import Cadastro from "./src/pages/Cadastro";
 import Administrador from "./src/pages/Administrador";
+import Adicionar from "./src/pages/Adicionar";
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +53,12 @@ export default function App() {
                     headerShown: false,
                   }}
                 name="Administrador" component={Administrador} /> 
+                <Stack.Screen
+                options={{
+                    title: '',
+                    headerShown: false,
+                  }}
+                name="Adicionar" component={Adicionar} />
             </Stack.Navigator>
         </NavigationContainer>
     )
