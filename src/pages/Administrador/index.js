@@ -229,8 +229,8 @@ const styles = StyleSheet.create({
 
         width: '100%',
         height: 100,
-     
-      
+
+
 
 
     },
@@ -284,8 +284,6 @@ let plantas_listadas = [
     {
         titulo: "Begônia",
     },
-  
-
 
 ]
 
@@ -350,7 +348,7 @@ function Body() {
                 ))}
                 <view style={styles.view_botao}>
 
-                    <View style={{width:'100%', justifyContent: 'center', alignItems: 'center'}}>
+                    <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
 
                         <TouchableOpacity style={styles.button_add_planta} >
                             <Text style={styles.text_add_planta}>Cadastrar</Text>
