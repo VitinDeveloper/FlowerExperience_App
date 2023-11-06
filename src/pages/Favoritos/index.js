@@ -109,154 +109,6 @@ function Body() {
 
                 <View style={styles.linha}></View>
 
-                {/* Card 2 */}
-
-                <View style={styles.card}>
-
-                    <View style={styles.principalImage}>
-                        <View style={styles.image}>
-                            <Image
-                                style={styles.plantas}
-                                source={require('./../../../src/plantas/DIPLADENIA1.png')}
-                            />
-                        </View>
-                    </View>
-                    <View style={styles.elementos}>
-                        <View style={styles.nomePlanta}>
-                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 55, }}>Dipladenia</Text>
-                        </View>
-                        <View style={styles.descricao}>
-                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
-                                A dipladenia, também conhecida como mandevilla,
-                                é uma flor encantadora que atrai
-                                a atenção com sua beleza e versatilidade.
-                            </Text>
-                        </View>
-                        <View style={styles.principalBtn}>
-                            <View style={styles.btnUm}>
-                                <TouchableOpacity>
-                                    <FontAwesome
-                                        name='plus'
-                                        size={25}
-                                        color='white'
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                            <View style={styles.btnDois}>
-                                <TouchableOpacity>
-                                    <FontAwesome
-                                        name='plus'
-                                        size={25}
-                                        color='white'
-                                        style={{ transform: [{ rotate: '45deg' }] }} //style pra deixar o icone na posição de um X
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-
-                </View>
-
-                <View style={styles.linha}></View>
-
-                {/* Card 3 */}
-
-                <View style={styles.card}>
-
-                    <View style={styles.principalImage}>
-                        <View style={styles.image}>
-                            <Image
-                                style={styles.plantas}
-                                source={require('./../../../src/plantas/PEPEROMIA1.png')}
-                            />
-                        </View>
-                    </View>
-                    <View style={styles.elementos}>
-                        <View style={styles.nomePlanta}>
-                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Peperomia</Text>
-                        </View>
-                        <View style={styles.descricao}>
-                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
-                                As peperomias são plantas extremamente fortes e não exigirem muita manutenção.
-                                Há mais de 1.000 espécies.
-                            </Text>
-                        </View>
-                        <View style={styles.principalBtn}>
-                            <View style={styles.btnUm}>
-                                <TouchableOpacity>
-                                    <FontAwesome
-                                        name='plus'
-                                        size={25}
-                                        color='white'
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                            <View style={styles.btnDois}>
-                                <TouchableOpacity>
-                                    <FontAwesome
-                                        name='plus'
-                                        size={25}
-                                        color='white'
-                                        style={{ transform: [{ rotate: '45deg' }] }} //style pra deixar o icone na posição de um X
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-
-                </View>
-
-                <View style={styles.linha}></View>
-
-                {/* Card 4 */}
-
-                <View style={styles.card}>
-
-                    <View style={styles.principalImage}>
-                        <View style={styles.image}>
-                            <Image
-                                style={styles.plantas}
-                                source={require('./../../../src/plantas/ESPADA1.png')}
-                            />
-                        </View>
-                    </View>
-                    <View style={styles.elementos}>
-                        <View style={styles.nomePlanta}>
-                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45, }}>Espada São Jorge</Text>
-                        </View>
-                        <View style={styles.descricao}>
-                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30, }}>
-                                A espada-de-são-jorge, também conhecida como língua-de-sogra, e sansevieria,
-                                é uma planta herbácea de origem africana.
-                            </Text>
-                        </View>
-                        <View style={styles.principalBtn}>
-                            <View style={styles.btnUm}>
-                                <TouchableOpacity>
-                                    <FontAwesome
-                                        name='plus'
-                                        size={25}
-                                        color='white'
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                            <View style={styles.btnDois}>
-                                <TouchableOpacity>
-                                    <FontAwesome
-                                        name='plus'
-                                        size={25}
-                                        color='white'
-                                        style={{ transform: [{ rotate: '45deg' }] }} //style pra deixar o icone na posição de um X
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-
-                </View>
-
-                {/* final dos card */}
-
             </View>
 
         </View>
@@ -269,12 +121,24 @@ function Footer() {
 
     const navigation = useNavigation();
 
+    //     const handleNavigateToFeed = () => {
+    //     navigation.navigate('Feed');
+    //     navigation.popToTop(); // Isso fará um "pop" para a tela inicial ('Feed').
+    //   };
+
+    const handleNavigateToFeed = () => {
+        navigation.reset({
+            index: 0, //vetor de telas, que reinicia tudo, ou seja vai para tela de Feed = tela 0
+            routes: [{ name: 'Feed' }] 
+        });
+    };
+
     return (
 
         <View style={styles.Footer}>
 
             <View style={styles.footerEsquerda}>
-                <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+                <TouchableOpacity onPress={handleNavigateToFeed}>
                     <FontAwesome
                         name='search'
                         size={45}

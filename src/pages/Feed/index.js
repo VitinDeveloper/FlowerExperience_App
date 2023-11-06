@@ -267,7 +267,7 @@ function Body() {
             <View style={styles.Footer}>
 
                 <View style={styles.footerEsquerda}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Informativo')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('')}>
                         <FontAwesome
                             name='search'
                             size={45}
