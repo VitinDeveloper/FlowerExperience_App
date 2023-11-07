@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Image, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; //importar icones da rede
 import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
 import { Ionicons } from '@expo/vector-icons';
@@ -43,11 +43,9 @@ function Body() {
 
             <View style={styles.HeaderBody}>
 
-                <FontAwesome
-                    name='user'
-                    size={130}
-                    color='#8b8a7a'
-                />
+            <Image
+                        source={require('./../../../src/Icons/usuario.png')} style={{width:150, height:150}}
+                        />
 
             </View>
 
@@ -160,31 +158,25 @@ function Footer() {
 
             <View style={styles.footerEsquerda}>
                 <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
-                    <FontAwesome
-                        name='home'
-                        size={45}
-                        color='#8b8a7a'
-                    />
+                <Image
+                        source={require('./../../../src/Icons/feed.png')} style={{width:60, height:60}}
+                        />
                 </TouchableOpacity>
             </View>
 
             <View style={styles.footerMeio}>
                 <TouchableOpacity onPress={() => navigation.navigate('Perfil')} style={{ marginTop: 10 }}>
-                    <FontAwesome
-                        name='user'
-                        size={55}
-                        color='#8b8a7a'
-                    />
+                <Image
+                        source={require('./../../../src/Icons/usuario.png')} style={{width:68, height:68}}
+                        />
                 </TouchableOpacity>
             </View>
 
             <View style={styles.footerDireita}>
                 <TouchableOpacity onPress={() => navigation.navigate('Favoritos')}>
-                    <FontAwesome
-                        name='star'
-                        size={45}
-                        color='#8b8a7a'
-                    />
+                <Image
+                        source={require('./../../../src/Icons/favoritos.png')} style={{width:60, height:60}}
+                        />
                 </TouchableOpacity>
             </View>
 

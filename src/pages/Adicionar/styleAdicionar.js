@@ -195,15 +195,25 @@ export const styles = StyleSheet.create({
     view_foto_um: {
         width: 150,
         height: 150,
-        backgroundColor: "yellow",
-        padding: 5
+        backgroundColor:"white",
+        padding: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '10%',
+        borderWidth: 2,
+        borderColor: '#24c28d'
     },
 
     view_foto_dois: {
         width: 150,
         height: 150,
-        backgroundColor: "green",
-        padding: 50
+        backgroundColor: "white",
+        marginLeft: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '10%',
+        borderWidth: 2,
+        borderColor: '#24c28d'
     },
 });
 ////Fim do Css da Tela Adicionar\\\\\

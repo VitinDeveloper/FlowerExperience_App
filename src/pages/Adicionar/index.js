@@ -73,7 +73,7 @@ function Body() {
                 <View style={styles.view_foto_um}>
 
                     <TouchableOpacity style={styles.add_foto_um}>
-                        <Icon name="lock" size={30} color="#000" style={styles.icon} />
+                        <Icon name="camera" size={85} color="#24c28d" style={styles.icon_foto} />
 
 
                     </TouchableOpacity>
@@ -81,6 +81,12 @@ function Body() {
                 </View>
 
                 <View style={styles.view_foto_dois}>
+
+                <TouchableOpacity style={styles.add_foto_um}>
+                        <Icon name="camera" size={85} color="#24c28d" style={styles.icon_foto} />
+
+
+                    </TouchableOpacity>
 
                 </View>
 

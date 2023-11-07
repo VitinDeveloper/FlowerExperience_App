@@ -28,18 +28,14 @@ function Header() {
         <View style={styles.Header}>
             <View style={styles.iconsHeader}>
                 <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
-                    <FontAwesome
-                        name='bars'
-                        size={45}
-                        color='#8b8a7a'
-                    />
+                <Image
+                        source={require('./../../../src/Icons/navegacao.png')} style={{width:50, height:50}}
+                        />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
-                    <FontAwesome
-                        name='user'
-                        size={48}
-                        color='#8b8a7a'
-                    />
+                <Image
+                        source={require('./../../../src/Icons/usuario.png')} style={{width:50, height:50}}
+                        />
                 </TouchableOpacity>
             </View>
         </View>
@@ -139,31 +135,25 @@ function Footer() {
 
             <View style={styles.footerEsquerda}>
                 <TouchableOpacity onPress={handleNavigateToFeed}>
-                    <FontAwesome
-                        name='search'
-                        size={45}
-                        color='#8b8a7a'
-                    />
+                <Image
+                        source={require('./../../../src/Icons/pesquisar.png')} style={{width:60, height:60}}
+                        />
                 </TouchableOpacity>
             </View>
 
             <View style={styles.footerMeio}>
                 <TouchableOpacity onPress={() => navigation.navigate('Favoritos')} style={{ marginTop: 10 }}>
-                    <FontAwesome
-                        name='star'
-                        size={55}
-                        color='#8b8a7a'
-                    />
+                <Image
+                        source={require('./../../../src/Icons/favoritos.png')} style={{width:68, height:68}}
+                        />
                 </TouchableOpacity>
             </View>
 
             <View style={styles.footerDireita}>
                 <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
-                    <FontAwesome
-                        name='tree'
-                        size={45}
-                        color='#8b8a7a'
-                    />
+                <Image
+                        source={require('./../../../src/Icons/feed.png')} style={{width:60, height:60}}
+                        />
                 </TouchableOpacity>
             </View>
 
