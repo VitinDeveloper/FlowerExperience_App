@@ -4,7 +4,11 @@ const window = Dimensions.get('window');
 
 ////Css da Tela de Favoritos\\\\
 export const styles = StyleSheet.create({
-
+    grid: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginBottom: 15,
+    },
     container: {
         flex: 1,
         backgroundColor: '#24c28d',
@@ -24,34 +28,21 @@ export const styles = StyleSheet.create({
         marginRight: 30,
         marginTop: 30,
     },
-
-    conteudo: {
-        flex: 1,
+    card: {
+        height: 200,
         flexDirection: 'column',
-        margin: 10,
+        width: '95%',
         alignItems: 'center',
     },
-
-    titulo: {
-        height: 100,
-        justifyContent: 'center'
-    },
-
-    card: {
-        height: 150,
-        flexDirection: 'row',
-    },
-
     principalImage: {
-        height: 125,
-        width: '35%',
+        height: 110,
+        width: 130,
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 35,
     },
-
     image: {
-        backgroundColor: 'red',
-        height: 100,
+        height: '150px',
         width: '80%',
         alignItems: 'center',
         justifyContent: 'center',
@@ -59,40 +50,32 @@ export const styles = StyleSheet.create({
         borderWidth: 3, // Largura da borda
         borderColor: '#24c28ded', // Cor da borda
     },
-
     plantas: {
         backgroundColor: 'white',
-        height: 95,
+        height: '100%',
         width: '100%',
         borderRadius: 12,
-
     },
-
     elementos: {
-        height: 150,
+        height: 'auto',
         width: '65%',
+        marginTop: 25,
     },
-
     nomePlanta: {
-        height: 35,
+        height: 'auto',
         width: '100%',
     },
-
     descricao: {
-        height: 65,
+        height: 'auto',
         width: '100%',
-        alignItems: 'center',
     },
-
     principalBtn: {
-        height: 50,
-        width: '100%',
-        alignItems: 'flex-end',
-        justifyContent: 'flex-end',
+        flex: 1,
         flexDirection: 'row',
-
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        paddingRight: 15,
     },
-
     btnUm: {
         backgroundColor: '#24c28ded',
         height: 45,
@@ -101,7 +84,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 25,
         marginTop: 3,
-        marginRight: 5
     },
     btnDois: {
         backgroundColor: 'red',
@@ -111,17 +93,25 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 25,
         marginTop: 3,
+        marginLeft: 5,
         marginRight: 5
     },
-
     linha: {
         backgroundColor: '#8b8a7a',
         height: 1,
         width: '90%',
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: 5,
+        marginBottom: 5,
     },
-
+    conteudo: {
+        flex: 1,
+        margin: 10,
+        alignItems: 'center',
+    },
+    titulo: {
+        height: 100,
+        justifyContent: 'center'
+    },
     //Baixo
     Footer: {
         height: '13%',
