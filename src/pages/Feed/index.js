@@ -114,24 +114,33 @@ function Body() {
                         {plantInfo.map((objPlanta, index) => (
 
                             <View style={styles.card} key={index}>
+                                <View style={{justifyContent: 'space-around', width:"100%"}}>
 
-                                <View style={{ flexDirection: 'row', height: 200, }}>
-                                    <View style={styles.principalImage}>
-                                        <View style={styles.image}>
-                                            <Image
-                                                style={styles.plantas}
-                                                source={objPlanta.imagensUm}
-                                            />
+
+                                    <View style={{ flexDirection: 'row', alignItems:'center' }}>
+
+
+                                        <View style={styles.principalImage}>
+                                            <View style={styles.image}>
+                                                <Image
+                                                    style={styles.plantas}
+                                                    source={objPlanta.imagensUm}
+                                                />
+                                            </View>
+                                        </View>
+
+
+                                        <View style={styles.elementos}>
+
+                                            <View style={styles.nomePlanta}>
+                                                <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45 }}>{objPlanta.titulo}</Text>
+                                            </View>
+                                            <View style={styles.descricao}>
+                                                <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30 }}>{objPlanta.sobre}</Text>
+                                            </View>
                                         </View>
                                     </View>
-                                    <View style={styles.elementos}>
-                                        <View style={styles.nomePlanta}>
-                                            <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#8b8a7a', marginTop: 10, marginRight: 45 }}>{objPlanta.titulo}</Text>
-                                        </View>
-                                        <View style={styles.descricao}>
-                                            <Text style={{ fontSize: 14, color: '#8b8a7a', marginTop: 5, marginRight: 30 }}>{objPlanta.sobre}</Text>
-                                        </View>
-                                    </View>
+
                                     <View style={styles.principalBtn}>
                                         <View style={styles.btn}>
                                             <TouchableOpacity onPress={() => {
@@ -148,6 +157,7 @@ function Body() {
                                         </View>
                                     </View>
                                 </View>
+
 
                                 <View style={styles.linha}></View>
                             </View>

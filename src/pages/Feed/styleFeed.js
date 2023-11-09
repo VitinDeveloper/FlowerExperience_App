@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     },
     //Cima
     Header: {
-        height: '10%',
+        height: '30%',
     },
     iconsHeader: {
         flex: 1,
@@ -28,10 +28,13 @@ export const styles = StyleSheet.create({
         marginTop: 30,
     },
     card: {
-        height: 200,
+       
         flexDirection: 'column',
         width: '95%',
         alignItems: 'center',
+        margin: 1,
+        padding: 2,
+        
     },
     principalImage: {
         height: 110,
@@ -74,6 +77,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
         paddingRight: 15,
+        marginBottom: 15
     },
     btn: {
         backgroundColor: '#24c28ded',
@@ -149,15 +153,17 @@ export const styles = StyleSheet.create({
     //Cima
     Header: {
         height: '10%',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        flexDirection: 'row'
     },
     iconsHeader: {
+      
         flex: 1,
         display: 'relative',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginLeft: 30,
-        marginRight: 30,
-        marginTop: 30,
+       margin: 10
     },
     conteudo: {
         flex: 1,
