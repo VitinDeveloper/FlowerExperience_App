@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useRoute } from '@react-navigation/native';
 import { styles } from '../Feed/styleFeed.js'
 import { useMeuContexto } from '../Contexto/index.js';
-
+import MenuBar from '../Feed/MenuBar.js'; // Import the MenuBar component
 
 
 const Stack = createNativeStackNavigator();
@@ -73,13 +73,21 @@ function Body() {
     const navigation = useNavigation()
     const { plantInfo } = useMeuContexto();
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Function to toggle the menu
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+
     return (
 
         <View style={styles.container}>
 
             <View style={styles.Header}>
                 <View style={styles.iconsHeader}>
-                    <TouchableOpacity onPress={() => navigation.navigate('')}>
+                    <TouchableOpacity onPress={toggleMenu}>
                         <Image
                             source={require('./../../../src/Icons/navegacao.png')} style={{ width: 50, height: 50 }}
                         />
@@ -151,6 +159,8 @@ function Body() {
                 </View>
 
             </ScrollView>
+
+            {isMenuOpen && <MenuBar onCloseMenu={toggleMenu} />}
 
             <View style={styles.Footer}>
 
