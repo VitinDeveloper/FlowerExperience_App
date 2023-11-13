@@ -3,7 +3,11 @@ import React, { createContext, useContext, useState } from 'react';
 
 const MeuContexto = createContext();
 
+
 export function MeuContextoProvider({ children }) {
+
+    const [plantFavoritos, setPlantFavoritos] = useState([])
+
 
     let plantInfo = [
 
@@ -122,12 +126,23 @@ export function MeuContextoProvider({ children }) {
 
     ]
 
-    let plantFavoritos = [
+    const removeObjectById = (objectId) => {
+        // Encontrar o índice do objeto com o id correspondente no array plantInfo
+        const index = plantFavoritos.findIndex(obj => obj.id === objectId);
+        // Verificar se o objeto com o id foi encontrado
+        if (index !== -1) {
+            // Criar uma cópia do array plantFavoritos para evitar a modificação direta
+            const updatedObjects = [...plantFavoritos];
+            // Remover o objeto com o id correspondente do array atualizado
+            updatedObjects.splice(index, 1);
+            // Atualizar o estado de plantFavoritos com o novo array sem o objeto removido
+            setPlantFavoritos([...updatedObjects]);
+        }
 
-    ]
+    };
 
     return (
-        <MeuContexto.Provider value={{ plantInfo, plantFavoritos }}>
+        <MeuContexto.Provider value={{ plantInfo, plantFavoritos, removeObjectById }}>
             {children}
         </MeuContexto.Provider>
     );
@@ -137,4 +152,3 @@ export function MeuContextoProvider({ children }) {
 export function useMeuContexto() {
     return useContext(MeuContexto);
 }
-

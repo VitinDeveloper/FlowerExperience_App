@@ -8,6 +8,7 @@ import { useRoute } from '@react-navigation/native';
 import { styles } from '../Feed/styleFeed.js'
 import { useMeuContexto } from '../Contexto/index.js';
 import MenuBar from '../Feed/MenuBar.js'; // Import the MenuBar component
+import { Alert } from 'react-native';
 
 
 const Stack = createNativeStackNavigator();
@@ -114,10 +115,10 @@ function Body() {
                         {plantInfo.map((objPlanta, index) => (
 
                             <View style={styles.card} key={index}>
-                                <View style={{justifyContent: 'space-around', width:"100%"}}>
+                                <View style={{ justifyContent: 'space-around', width: "100%" }}>
 
 
-                                    <View style={{ flexDirection: 'row', alignItems:'center' }}>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
 
                                         <View style={styles.principalImage}>
@@ -216,6 +217,13 @@ function MostrarPlanta() {
     function favoritarPlantas() {
 
         plantFavoritos.push(planta)
+
+        // Exiba uma mensagem de alerta
+        Alert.alert(
+            'Planta Favoritada',
+            'Esta planta foi adicionada aos seus favoritos!',
+            [{ text: 'OK', onPress: () => console.log('OK pressionado') }]
+        );
 
     }
 

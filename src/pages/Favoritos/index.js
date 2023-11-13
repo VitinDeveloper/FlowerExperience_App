@@ -8,8 +8,6 @@ import { useMeuContexto } from '../Contexto/index.js';
 
 export default function App() {
 
-
-
     return (
         <View style={styles.container}>
             <Header />
@@ -49,7 +47,7 @@ function Header() {
 
 function Body() {
 
-    const { plantInfo, plantFavoritos } = useMeuContexto();
+    const { plantInfo, plantFavoritos, removeObjectById } = useMeuContexto();
     const navigation = useNavigation()
 
     return (
@@ -98,7 +96,7 @@ function Body() {
                                         </TouchableOpacity>
                                     </View>
                                     <View style={styles.btnDois}>
-                                        <TouchableOpacity>
+                                        <TouchableOpacity onPress={() => removeObjectById(objPlanta.id)}>
                                             <FontAwesome
                                                 name='plus'
                                                 size={25}
