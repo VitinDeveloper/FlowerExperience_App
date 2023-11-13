@@ -87,7 +87,11 @@ function Body() {
                                 </View>
                                 <View style={styles.principalBtn}>
                                     <View style={styles.btnUm}>
-                                        <TouchableOpacity>
+                                        <TouchableOpacity onPress={() => {
+                                            // setId(objPlanta.id)
+                                            // navigation.navigate('MostrarPlanta')
+                                            navigation.navigate('MostrarPlanta', { id: objPlanta.id });
+                                        }}>
                                             <FontAwesome
                                                 name='plus'
                                                 size={25}
