@@ -20,6 +20,13 @@ export default function App() {
 
       <NavigationContainer>
         <Stack.Navigator>
+        <Stack.Screen
+            options={{
+              title: '',
+              headerShown: false,
+            }}
+
+            name="Perfil" component={Perfil} />
           <Stack.Screen
             options={{
               title: '',
@@ -32,13 +39,7 @@ export default function App() {
               headerShown: false,
             }}
             name="Favoritos" component={Favoritos} />
-          <Stack.Screen
-            options={{
-              title: '',
-              headerShown: false,
-            }}
-
-            name="Perfil" component={Perfil} />
+          
           <Stack.Screen
             options={{
               title: '',
