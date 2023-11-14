@@ -76,7 +76,7 @@ footerEsquerda: {
     width: '20%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignIteyellowms: 'center',
 },
 
 //estilização do FooterMeio
@@ -117,9 +117,21 @@ inputContainer: {
     backgroundColor: '#24c28d',
 },
 DivisoesImputs:{
+
 width: '100%',
-height: '30%'
+marginTop: 10
 },
+DivisoesImputsButton:{
+    
+    justifyContent:'center',
+    alignContent: 'center',
+    flexDirection:'row',
+    flexDirection:'row',
+    padding:40
+
+},
+
+
 //estilização dos Icones dentro do Input
 icon: {
     marginRight: 10,
@@ -144,6 +156,13 @@ labelEscritas: {
     fontSize: 22,
     color: '#8b8a7a',
 },
+button:{
+justifyContent:'center',
+alignItems:'center',
+padding:2
+
+
+},
 
 //estilização dos Botões
 buttonStyle: {
@@ -154,9 +173,9 @@ buttonStyle: {
     height: 40,
     backgroundColor: '#24c28d',
     borderColor: '#24c28d',
-    marginTop: -30,
-    marginLeft:10,
-    marginRight:10
+   
+    marginLeft:20,
+    marginRight:20
 
     
 },
@@ -164,17 +183,17 @@ buttonStyle: {
 //estilização da escrita de dentro dos botões
 nomesBotao: {
     color: 'white',
-    fontSize: 20,
+    fontSize: "90%",
 },
 
 //estilização da ScrollTamanho
 ScrollTamanho: {
- flex:1, // 60% da altura da janela
+    height:'100%', // 60% da altura da janela
     borderRadius: 20,
     marginLeft: '2%',
     marginRight: '2%',
-    backgroundColor: '#eaead4',
-  
+     backgroundColor: '#eaead4',
+    
 },
 });
 ////Fim do Css da Tela de Perfil\\

@@ -38,8 +38,8 @@ function Body() {
 
     return (
         <ScrollView style={styles.ScrollTamanho}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ maxWidth: 750, width: "95%", height: 300 }}>
+            <View style={{  height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{  maxWidth: 750, width: "95%", height: '100%', }}>
 
 
                     <View style={styles.HeaderBody}>
@@ -85,56 +85,53 @@ function Body() {
 
 
                     <View style={styles.DivisoesImputs}>
-                    <View style={styles.labelContainer}>
-                        <Text style={styles.labelEscritas}>Senha</Text>
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <Icon name="lock" size={30} color="#000" style={styles.icon} />
-                        <TextInput
-                            style={styles.input}
-                            placeholder='Password'
-                            placeholderTextColor='#8b8a7a'
-                            value={input}
-                            onChangeText={(texto) => setInput(texto)}
-                            secureTextEntry={senha}
-                        />
-                        <TouchableOpacity style={styles.icon} onPress={() => setSenha(!senha)}>
-                            {senha ?
-                                <Ionicons name='eye' color='#8b8a7a' size={25} />
-                                :
-                                <Ionicons name='eye-off' color='#8b8a7a' size={25} />
-                            }
-                        </TouchableOpacity>
-                    </View>
-                 </View>
-
-
-                 <View style={styles.DivisoesImputs}>
-                    <View style={{width:'100%', height:'100%', justifyContent:'center', alignItems:'center', flexDirection:'row'}}>
-                    <View style={styles.buttonStyle}>
-
-                        <TouchableOpacity style={styles.button}>
-
-                            <Text style={styles.nomesBotao}>Editar Usuário</Text>
-
-                        </TouchableOpacity>
-
+                        <View style={styles.labelContainer}>
+                            <Text style={styles.labelEscritas}>Senha</Text>
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <Icon name="lock" size={30} color="#000" style={styles.icon} />
+                            <TextInput
+                                style={styles.input}
+                                placeholder='Password'
+                                placeholderTextColor='#8b8a7a'
+                                value={input}
+                                onChangeText={(texto) => setInput(texto)}
+                                secureTextEntry={senha}
+                            />
+                            <TouchableOpacity style={styles.icon} onPress={() => setSenha(!senha)}>
+                                {senha ?
+                                    <Ionicons name='eye' color='#8b8a7a' size={25} />
+                                    :
+                                    <Ionicons name='eye-off' color='#8b8a7a' size={25} />
+                                }
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
-                    <View style={styles.buttonStyle}>
 
-                        <TouchableOpacity style={styles.button}>
+                    <View style={styles.DivisoesImputsButton}>
+                      
+                            <View style={styles.buttonStyle}>
 
-                            <Text style={styles.nomesBotao}>Excluir Usuário</Text>
+                                <TouchableOpacity style={styles.button}>
 
-                        </TouchableOpacity>
+                                    <Text style={styles.nomesBotao}>Editar Usuário</Text>
 
+                                </TouchableOpacity>
+
+                            </View>
+
+                            <View style={styles.buttonStyle}>
+
+                                <TouchableOpacity style={styles.button}>
+
+                                    <Text style={styles.nomesBotao}>Excluir Usuário</Text>
+
+                                </TouchableOpacity>
+
+                            </View>
+                        
                     </View>
-                    </View>
-                </View>
-
-
-
                 </View>
             </View>
         </ScrollView>
