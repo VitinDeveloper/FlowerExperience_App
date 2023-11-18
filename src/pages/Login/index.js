@@ -6,7 +6,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from '@react-navigation/native';
-import {styles} from '../Login/styleLogin.js'
+import { styles } from '../Login/styleLogin.js';
+import Axios from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 // Objeto para armazenar dados do login
 let armazenandoLogin = {
@@ -39,13 +42,41 @@ function Header() {
 function Body() {
     const navigation = useNavigation();
     const route = useRoute();
-    const objetoRecebidoCadastro = route.params.objetoRecebidoCadastro;
-    const [entradaNome, setEntradaNome] = useState('')
+    // const objetoRecebidoCadastro = route.params.objetoRecebidoCadastro;
+    const [entradaEmail, setEntradaEmail] = useState('')
     const [entradaSenha, setEntradaSenha] = useState('');
     const [inputSenha, setInputSenha] = useState(true);
 
+        // Função para lidar com o evento de login
+        async function Login() {
+
+            if (entradaEmail === '' || entradaSenha === '') {
+                alert('Preencha todos os campos')
+    
+            }else{ 
+
+    
+                const usuario = await Axios.post('http://localhost:19007/user/login',{
+    
+                    email:entradaEmail,
+                    senha:entradaSenha
+
+                });
+
+                if (usuario.status == 200) {
+
+                    await AsyncStorage.setItem('online', true)
+                    navigation.navigate("Feed")
+
+                }
+
+    
+            }
+    
+        }
+
     return (
-        
+
         <View style={styles.Body}>
             <View style={styles.HeaderBody}>
                 <Text style={styles.titleBody}>Login</Text>
@@ -54,16 +85,16 @@ function Body() {
             <View style={styles.conteudo}>
                 {/* Campo de entrada para o nome */}
                 <View style={styles.labelContainer}>
-                    <Text style={styles.labelEscritas}>Nome</Text>
+                    <Text style={styles.labelEscritas}>Email</Text>
                 </View>
                 <View style={styles.inputContainer}>
                     <Icon name="inbox" size={30} color="#000" style={styles.icon} />
                     <TextInput
                         style={styles.input}
                         placeholderTextColor='#8b8a7a'
-                        value={entradaNome}
-                        onChangeText={setEntradaNome}
-                        placeholder='Nome'
+                        value={entradaEmail}
+                        onChangeText={setEntradaEmail}
+                        placeholder='Email'
                     />
                 </View>
 
@@ -108,32 +139,13 @@ function Body() {
         </View>
     );
 
-    // Função para lidar com o evento de login
-    function Login() {
+};  
 
-    console.log(objetoRecebidoCadastro)
-    if (entradaNome === '' || entradaSenha === '') {
-        alert('Preencha todos os campos');
-    } else if (objetoRecebidoCadastro && objetoRecebidoCadastro.nome !== entradaNome) {
-        alert('O Nome não confere');
-    } else if (objetoRecebidoCadastro && objetoRecebidoCadastro.senha !== entradaSenha) {
-        alert('A Senha inserida não confere');
-        } else {
-            // Se as credenciais estiverem corretas, armazene os dados e vá para a próxima tela
-            armazenandoLogin.nome = objetoRecebidoCadastro.nome
-            armazenandoLogin.email = objetoRecebidoCadastro.email
-            armazenandoLogin.senha = objetoRecebidoCadastro.senha
-            alert('Login bem-sucedido!')
-            navigation.navigate('Feed', { objetoLogin: armazenandoLogin })
-        }
 
+
+    // Função para renderizar a parte inferior (Footer)
+    function Footer() {
+        return (
+            <View style={styles.Footer}></View>
+        );
     }
-
-}
-
-// Função para renderizar a parte inferior (Footer)
-function Footer() {
-    return (
-        <View style={styles.Footer}></View>
-    );
-}

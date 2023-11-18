@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { styles } from '../Cadastro/styleCadastro.js'
+import  axios  from 'axios';
 
 // Objeto para armazenar dados do formulário de cadastro
 let armazenandoCadastro = {
@@ -57,6 +58,8 @@ function Body() {
             armazenandoCadastro.email = entradaEmail
             armazenandoCadastro.senha = entradaSenha
             armazenandoCadastro.confirmSenha = entradaConfirmSenha
+            
+            axios.post('http://localhost:19007/register', armazenandoCadastro)
 
             // Salva os dados do cadastro e os exibe no console
             // const infoCadastradas = armazenandoCadastro
