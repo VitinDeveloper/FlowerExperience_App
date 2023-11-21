@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableOpacity, ScrollView, Image, Text } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, Image, Text, TextInput } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useRoute } from '@react-navigation/native';
@@ -9,9 +9,10 @@ import { styles } from '../Feed/styleFeed.js'
 import { useMeuContexto } from '../Contexto/index.js';
 import MenuBar from '../Feed/MenuBar.js'; // Import the MenuBar component
 import { Alert } from 'react-native';
-
+import Icon from 'react-native-vector-icons/Ionicons'; // Importe o ícone desejado
 
 const Stack = createNativeStackNavigator();
+
 ////Navegação entre Telas\\\\
 export default function Feed() {
 
@@ -72,15 +73,35 @@ export function App() {
 function Body() {
 
     const navigation = useNavigation()
-    const { plantInfo } = useMeuContexto();
+    const { plantPesquisa, setPlantPesquisa, plantInfo } = useMeuContexto();
 
+    // Função para Aparecer o MenuLateral
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    // Function to toggle the menu
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+
+    ////Comandos para Pesquisar Planta, através do Título\\\\
+    const [showSearch, setShowSearch] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const searchPlant = () => {
+        const formattedSearchTerm = searchTerm.toLowerCase();
+        const foundPlant = plantInfo.find((planta) =>
+            planta.titulo.toLowerCase() === formattedSearchTerm
+        );
+
+        if (foundPlant) {
+            setPlantPesquisa(foundPlant);
+            navigation.navigate('MostrarPlanta', { id: foundPlant.id });
+        } else {
+            setPlantPesquisa(null);
+            // Lógica para lidar com planta não encontrada
+            Alert.alert('Planta não encontrada', 'A planta pesquisada não foi encontrada.');
+        }
+    };
+    ////Fim dos Comandos para Pesquisar Planta, através do Título\\\\
 
     return (
 
@@ -117,9 +138,7 @@ function Body() {
                             <View style={styles.card} key={index}>
                                 <View style={{ justifyContent: 'space-around', width: "100%" }}>
 
-
                                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-
 
                                         <View style={styles.principalImage}>
                                             <View style={styles.image}>
@@ -129,7 +148,6 @@ function Body() {
                                                 />
                                             </View>
                                         </View>
-
 
                                         <View style={styles.elementos}>
 
@@ -176,11 +194,34 @@ function Body() {
             <View style={styles.Footer}>
 
                 <View style={styles.footerEsquerda}>
-                    <TouchableOpacity onPress={() => navigation.navigate('')}>
-                        <Image
-                            source={require('./../../../src/Icons/pesquisar.png')} style={{ width: 60, height: 60 }}
-                        />
-                    </TouchableOpacity>
+
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        {!showSearch ? (
+                            <TouchableOpacity onPress={() => {
+                                setShowSearch(true)
+                                navigation.navigate('')
+                            }}>
+                                <Image
+                                    source={require('./../../../src/Icons/pesquisar.png')} style={{ width: 60, height: 60 }}
+                                />
+                            </TouchableOpacity>
+                        ) : (
+                            <View>
+                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                    <TextInput
+                                        style={{ flex: 1, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20, paddingHorizontal: 10 }}
+                                        placeholder="Pesquisar planta..."
+                                        onChangeText={text => setSearchTerm(text)}
+                                        value={searchTerm}
+                                        onSubmitEditing={searchPlant}
+                                    />
+                                    <TouchableOpacity onPress={searchPlant} style={{ padding: 10, backgroundColor: 'lightblue', borderRadius: 5 }}>
+                                        <Icon name="search" size={20} color="black" />
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        )}
+                    </View>
                 </View>
 
                 <View style={styles.footerMeio}>
@@ -198,9 +239,7 @@ function Body() {
                         />
                     </TouchableOpacity>
                 </View>
-
             </View>
-
         </View>
 
     );
@@ -214,18 +253,29 @@ function MostrarPlanta() {
 
     const { plantInfo, plantFavoritos } = useMeuContexto();
 
+
+    ////Função para Favoritar uma Planta\\\\
     function favoritarPlantas() {
+        const isAlreadyFavorited = plantFavoritos.some(item => item.id === planta.id);
 
-        plantFavoritos.push(planta)
+        if (!isAlreadyFavorited) {
+            plantFavoritos.push(planta);
 
-        // Exiba uma mensagem de alerta
-        Alert.alert(
-            'Planta Favoritada',
-            'Esta planta foi adicionada aos seus favoritos!',
-            [{ text: 'OK', onPress: () => console.log('OK pressionado') }]
-        );
-
+            // Exiba uma mensagem de alerta
+            Alert.alert(
+                'Planta Favoritada',
+                'Esta planta foi adicionada aos seus favoritos!',
+                [{ text: 'OK', onPress: () => console.log('OK pressionado') }]
+            );
+        } else {
+            Alert.alert(
+                'Planta Já Favoritada',
+                'Esta planta já está nos seus favoritos!',
+                [{ text: 'OK', onPress: () => console.log('OK pressionado') }]
+            );
+        }
     }
+    ////Fim da Função para Favoritar uma Planta\\\\
 
     const route = useRoute();
     const idEscolhido = route.params.id;
@@ -299,7 +349,7 @@ function MostrarPlanta() {
                         </View>
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
-                                <Text style={{ fontSize: 35, }}>☀️</Text>
+                                <Text style={{ fontSize: 35 }}>☀️</Text>
                             </View>
                             <View style={styles.InformaTextoDiv}>
                                 <Text>
@@ -311,7 +361,7 @@ function MostrarPlanta() {
                         <View style={styles.linha}></View>
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
-                                <Text style={{ fontSize: 35, }}>💧</Text>
+                                <Text style={{ fontSize: 35 }}>💧</Text>
                             </View>
                             <View style={styles.InformaTextoDiv}>
                                 <Text>
@@ -323,7 +373,7 @@ function MostrarPlanta() {
                         <View style={styles.linha}></View>
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
-                                <Text style={{ fontSize: 35, }}>🌱</Text>
+                                <Text style={{ fontSize: 35 }}>🌱</Text>
                             </View>
                             <View style={styles.InformaTextoDiv}>
                                 <Text>
@@ -335,7 +385,7 @@ function MostrarPlanta() {
                         <View style={styles.linha}></View>
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
-                                <Text style={{ fontSize: 35, }}>📍</Text>
+                                <Text style={{ fontSize: 35 }}>📍</Text>
                             </View>
                             <View style={styles.InformaTextoDiv}>
                                 <Text>

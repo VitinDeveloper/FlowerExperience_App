@@ -3,7 +3,6 @@ import React, { createContext, useContext, useState } from 'react';
 
 const MeuContexto = createContext();
 
-
 export function MeuContextoProvider({ children }) {
 
     const [plantFavoritos, setPlantFavoritos] = useState([])
@@ -141,8 +140,11 @@ export function MeuContextoProvider({ children }) {
 
     };
 
+    ////Comando para Pesquisar Planta na Tela de Feed\\\\
+    const [plantPesquisa, setPlantPesquisa ] = useState()
+
     return (
-        <MeuContexto.Provider value={{ plantInfo, plantFavoritos, removeObjectById }}>
+        <MeuContexto.Provider value={{ plantInfo,plantPesquisa, setPlantPesquisa, plantFavoritos, removeObjectById }}>
             {children}
         </MeuContexto.Provider>
     );
