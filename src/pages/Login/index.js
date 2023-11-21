@@ -12,11 +12,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 // Objeto para armazenar dados do login
-let armazenandoLogin = {
-    nome: '',
-    email: '',
-    senha: ''
-}
+    let armazenandoLogin = {
+        nome: '',
+        email: '',
+        senha: ''
+    }
 
 export default function App() {
     return (

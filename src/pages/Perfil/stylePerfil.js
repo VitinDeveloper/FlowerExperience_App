@@ -183,7 +183,7 @@ buttonStyle: {
 //estilização da escrita de dentro dos botões
 nomesBotao: {
     color: 'white',
-    fontSize: "90%",
+    fontSize: 30,
 },
 
 //estilização da ScrollTamanho

@@ -299,7 +299,7 @@ function MostrarPlanta() {
                         </View>
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
-                                <Text style={{ fontSize: 35 }}>☀️</Text>
+                                <Text style={{ fontSize: 35, }}>☀️</Text>
                             </View>
                             <View style={styles.InformaTextoDiv}>
                                 <Text>
@@ -311,7 +311,7 @@ function MostrarPlanta() {
                         <View style={styles.linha}></View>
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
-                                <Text style={{ fontSize: 35 }}>💧</Text>
+                                <Text style={{ fontSize: 35, }}>💧</Text>
                             </View>
                             <View style={styles.InformaTextoDiv}>
                                 <Text>
@@ -323,7 +323,7 @@ function MostrarPlanta() {
                         <View style={styles.linha}></View>
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
-                                <Text style={{ fontSize: 35 }}>🌱</Text>
+                                <Text style={{ fontSize: 35, }}>🌱</Text>
                             </View>
                             <View style={styles.InformaTextoDiv}>
                                 <Text>
@@ -335,7 +335,7 @@ function MostrarPlanta() {
                         <View style={styles.linha}></View>
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
-                                <Text style={{ fontSize: 35 }}>📍</Text>
+                                <Text style={{ fontSize: 35, }}>📍</Text>
                             </View>
                             <View style={styles.InformaTextoDiv}>
                                 <Text>
