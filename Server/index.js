@@ -52,16 +52,16 @@ const {id} = req.params
 
 
 //Excluir USUARIO do BANDO DE DADOS//
-app.get("/user/:id", (req, res) => {
+app.delete("/user/deleteUser/:id", (req, res) => {
   const {id} = req.params  
   
-    let SQL = `DELETE * FROM usuarios WHERE idusuarios = (?)`;
+    let SQL = `DELETE FROM usuarios WHERE idusuarios = (?)`;
   
     db.query(SQL, [id], (err, result) => {
       console.log(err);
       res.status(200).json({
   
-          usuario: result
+        message: 'usuário excluido'
       })    
     });  
   });  

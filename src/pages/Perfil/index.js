@@ -12,6 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function App() {
+    
 
     return (
         <View style={styles.container}>
@@ -36,12 +37,16 @@ function Header() {
 
 function Body() {
 
+    const navigation = useNavigation();
     const [input, setInput] = useState('');
     const [senha, setSenha] = useState(true);
     const [usuarioNome, setUsuarioNome] = useState ('');
     const [usuarioEmail, setUsuarioEmail] = useState ('');
     const [usuarioSenha, setUsuarioSenha] = useState ('');
 
+
+
+//Função de LISTAR dados do USUÁRIO//
     useEffect(()=>{
         
         async function getData() {
@@ -65,6 +70,38 @@ function Body() {
         getData()
 
     }, [])
+
+
+    
+
+// Função de EXCLUIR USUÁRIO//      
+    async function deleteData() {
+
+        const id = await AsyncStorage.getItem('idUser')
+        console.log(id)
+        try {
+            const mensagem = await Axios.delete('http://localhost:19007/user/deleteUser/' + id ).then(response => response.data.message)
+            if (mensagem == 'usuário excluido') {
+                alert('Usuário excluido com sucesso!')
+                
+                AsyncStorage.clear
+                
+                navigation.navigate("Cadastro")
+
+            }
+            console.log(mensagem)
+
+
+
+
+        } catch (error) {
+            console.log(error)
+        }
+        
+        
+    }
+
+
 
 
 
