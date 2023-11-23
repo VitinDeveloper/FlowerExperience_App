@@ -66,6 +66,8 @@ function Body() {
 
     }, [])
 
+
+
     return (
         <ScrollView style={styles.ScrollTamanho}>
             <View style={{  height: '100%', justifyContent: 'center', alignItems: 'center' }}>
@@ -155,7 +157,7 @@ function Body() {
 
                             <View style={styles.buttonStyle}>
 
-                                <TouchableOpacity style={styles.button}>
+                                <TouchableOpacity style={styles.button} onPress={deleteData}>
 
                                     <Text style={styles.nomesBotao}>Excluir User</Text>
 
