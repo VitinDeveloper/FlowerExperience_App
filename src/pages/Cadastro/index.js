@@ -160,7 +160,10 @@ function Body() {
                         <Text style={styles.nomesBotao}>Cadastrar</Text>
                     </TouchableOpacity>
                 </View>
-
+                <TouchableOpacity>
+                    <Text style={styles.esqueciSenha} onPress={() => navigation.navigate('Login')}>Já Possuo Cadastro</Text>
+                    <View style={styles.horizontalLinha}></View>
+                </TouchableOpacity>
             </View>
         </View>
     );

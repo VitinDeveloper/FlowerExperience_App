@@ -173,5 +173,18 @@ export const styles = StyleSheet.create({
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
     },
+    esqueciSenha: {
+        justifyContent: 'center',
+        marginTop: 10,
+        fontSize: 15,
+        color: '#2596be'
+    },
+
+    horizontalLinha: {
+        borderBottomColor: '#2596be',
+        borderBottomWidth: 1,
+        marginTop: 2,
+        marginBottom: 10,
+    },
 });
 ////Fim do Css da Tela de Cadastro\\\\
