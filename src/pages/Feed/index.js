@@ -107,25 +107,41 @@ function Body() {
 
         <View style={styles.container}>
 
-            <View style={styles.Header}>
-                <View style={styles.iconsHeader}>
-                    <TouchableOpacity onPress={toggleMenu}>
-                        <Image
-                            source={require('./../../../src/Icons/navegacao.png')} style={{ width: 50, height: 50 }}
-                        />
-                        {/* < FontAwesome
-                            name='bars'
-                            size={45}
-                            color='#8b8a7a'
-                        /> */}
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
-                        <Image
-                            source={require('./../../../src/Icons/usuario.png')} style={{ width: 50, height: 50 }}
-                        />
+<View style={styles.Header}>
+    <View style={styles.iconsHeader}>
+        <TouchableOpacity onPress={toggleMenu}>
+            <Image
+                source={require('./../../../src/Icons/navegacao.png')} style={{ width: 50, height: 50 }}
+            />
+        </TouchableOpacity>
+
+        {showSearch ? (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <TextInput
+                        style={{ flex: 1, height: 40, borderColor: '#eaead4', borderWidth: 10, marginBottom: 20, paddingHorizontal: 10, backgroundColor:'#eaead4'}}
+                        placeholder="Pesquisar planta..."
+                        onChangeText={text => setSearchTerm(text)}
+                        value={searchTerm}
+                        onSubmitEditing={searchPlant}
+                    />
+                    <TouchableOpacity onPress={searchPlant} style={{ backgroundColor: '#eaead4', borderRadius: 5, height: 40, paddingHorizontal: 10,marginBottom: 20,marginLeft: 20, justifyContent:"center", alignItems: 'center' }}>
+                        <Icon name="search" size={20} color="black" />
                     </TouchableOpacity>
                 </View>
-            </View >
+            </View>
+        ) : (
+            <Text></Text>
+        )}
+
+        <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
+            <Image
+                source={require('./../../../src/Icons/usuario.png')} style={{ width: 50, height: 50 }}
+            />
+        </TouchableOpacity>
+    </View>
+</View>
+
 
             <ScrollView style={styles.ScrollTamanho}>
 
@@ -206,20 +222,14 @@ function Body() {
                                 />
                             </TouchableOpacity>
                         ) : (
-                            <View>
-                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                    <TextInput
-                                        style={{ flex: 1, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20, paddingHorizontal: 10 }}
-                                        placeholder="Pesquisar planta..."
-                                        onChangeText={text => setSearchTerm(text)}
-                                        value={searchTerm}
-                                        onSubmitEditing={searchPlant}
-                                    />
-                                    <TouchableOpacity onPress={searchPlant} style={{ padding: 10, backgroundColor: 'lightblue', borderRadius: 5 }}>
-                                        <Icon name="search" size={20} color="black" />
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
+                            <TouchableOpacity onPress={() => {
+                                setShowSearch(true)
+                                navigation.navigate('')
+                            }}>
+                                <Image
+                                    source={require('./../../../src/Icons/pesquisar.png')} style={{ width: 60, height: 60 }}
+                                />
+                            </TouchableOpacity>
                         )}
                     </View>
                 </View>
