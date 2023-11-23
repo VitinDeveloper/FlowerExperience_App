@@ -345,7 +345,7 @@ function MostrarPlanta() {
                                     </View>
                                 </View>
                                 <View style={styles.HeaderBodyTituloPlanta}>
-                                    <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#8b8a7a' }}>{titulo}</Text>
+                                    <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#8b8a7a', padding: 3, }}>{titulo}</Text>
                                 </View>
                             </View>
                             <View style={styles.HeaderBodyDireita}>
@@ -356,7 +356,9 @@ function MostrarPlanta() {
                                     />
                                 </View>
                             </View>
+
                         </View>
+                        
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
                                 <Text style={{ fontSize: 35 }}>☀️</Text>

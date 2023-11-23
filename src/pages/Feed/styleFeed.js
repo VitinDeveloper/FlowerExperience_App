@@ -173,13 +173,14 @@ export const styles = StyleSheet.create({
     },
     //estilização do CimaBody
     HeaderBody: {
-        height: window.height * 0.3, // 60% da altura da janela
+        height: '30%', // 60% da altura da janela
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#eaead4',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         flexDirection: 'row',
+     marginBottom: 30
     },
     //estilização do CimaBodyEsquerda
     HeaderBodyEsquerda: {
@@ -209,6 +210,7 @@ export const styles = StyleSheet.create({
     HeaderBodyTituloPlanta: {
         height: '15%',
         width: '100%',
+        padding:10,
         backgroundColor: '#eaead4',
         justifyContent: 'center',
         alignItems: 'center',
@@ -232,7 +234,7 @@ export const styles = StyleSheet.create({
     },
     //Informações da planta
     DivInforma: {
-        height: window.height * 0.19,
+        height: 'auto',
         width: '100%',
         marginTop: 10,
         borderRadius: 25,
