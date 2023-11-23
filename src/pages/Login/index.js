@@ -68,7 +68,7 @@ function Body() {
                 if (usuario.status == 200) {
 
                     await AsyncStorage.setItem('online', true)
-                    // navigation.navigate("Feed")
+                    navigation.navigate("Feed")
 
                 }
 

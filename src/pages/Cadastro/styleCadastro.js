@@ -130,7 +130,7 @@ export const styles = StyleSheet.create({
     // Estilos para o texto do placeholder
     input: {
         flex: 1,
-        color: '#8b8a7a',
+        color: '#FFFFFF',
         fontSize: 18,
     },
 
