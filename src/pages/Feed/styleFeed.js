@@ -173,14 +173,13 @@ export const styles = StyleSheet.create({
     },
     //estilização do CimaBody
     HeaderBody: {
-        height: '30%', // 60% da altura da janela
+        height: window.height * 0.3, // 60% da altura da janela
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#eaead4',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         flexDirection: 'row',
-     marginBottom: 30
     },
     //estilização do CimaBodyEsquerda
     HeaderBodyEsquerda: {
@@ -210,7 +209,6 @@ export const styles = StyleSheet.create({
     HeaderBodyTituloPlanta: {
         height: '15%',
         width: '100%',
-        padding:10,
         backgroundColor: '#eaead4',
         justifyContent: 'center',
         alignItems: 'center',
@@ -234,7 +232,7 @@ export const styles = StyleSheet.create({
     },
     //Informações da planta
     DivInforma: {
-        height: 'auto',
+        height: window.height * 0.19,
         width: '100%',
         marginTop: 10,
         borderRadius: 25,
@@ -338,5 +336,45 @@ export const styles = StyleSheet.create({
         marginRight: '2%',
         backgroundColor: '#eaead4',
     },
+    //estilização do Modal
+    modalBackground: {
+        flex: 1,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Aqui é definida a cor de fundo semi-transparente
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalView: {
+        backgroundColor: "#eaead4",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        justifyContent: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+      },
+    //   modalTitle: {
+    //     fontSize: 20,
+    //     marginBottom: 10,
+    //     textAlign: "center",
+    //     fontWeight: "bold"
+    //   },
+      modalDescription: {
+        fontSize: 16,
+        marginBottom: 20,
+        textAlign: "center",
+        fontWeight: "bold",
+      },
+      modalButton: {
+        width: 200, // Ajuste o tamanho horizontal do botão
+        height: 50, // Ajuste o tamanho vertical do botão
+        marginTop: 10 // Espaçamento superior do botão
+        // Outros estilos desejados para o botão
+      }
 });
 ////Fim do Css da Tela Informativo-MostrarPlanta\\\\

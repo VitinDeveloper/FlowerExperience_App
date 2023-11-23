@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableOpacity, ScrollView, Image, Text, TextInput } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, Image, Text, TextInput, Modal } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome"; //importar icones da rede
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useRoute } from '@react-navigation/native';
@@ -107,40 +107,40 @@ function Body() {
 
         <View style={styles.container}>
 
-<View style={styles.Header}>
-    <View style={styles.iconsHeader}>
-        <TouchableOpacity onPress={toggleMenu}>
-            <Image
-                source={require('./../../../src/Icons/navegacao.png')} style={{ width: 50, height: 50 }}
-            />
-        </TouchableOpacity>
+            <View style={styles.Header}>
+                <View style={styles.iconsHeader}>
+                    <TouchableOpacity onPress={toggleMenu}>
+                        <Image
+                            source={require('./../../../src/Icons/navegacao.png')} style={{ width: 50, height: 50 }}
+                        />
+                    </TouchableOpacity>
 
-        {showSearch ? (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <TextInput
-                        style={{ flex: 1, height: 40, borderColor: '#eaead4', borderWidth: 10, marginBottom: 20, paddingHorizontal: 10, backgroundColor:'#eaead4'}}
-                        placeholder="Pesquisar planta..."
-                        onChangeText={text => setSearchTerm(text)}
-                        value={searchTerm}
-                        onSubmitEditing={searchPlant}
-                    />
-                    <TouchableOpacity onPress={searchPlant} style={{ backgroundColor: '#eaead4', borderRadius: 5, height: 40, paddingHorizontal: 10,marginBottom: 20,marginLeft: 20, justifyContent:"center", alignItems: 'center' }}>
-                        <Icon name="search" size={20} color="black" />
+                    {showSearch ? (
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <TextInput
+                                    style={{ flex: 1, height: 40, borderColor: '#eaead4', borderWidth: 10, marginBottom: 20, paddingHorizontal: 10, backgroundColor: '#eaead4' }}
+                                    placeholder="Pesquisar planta..."
+                                    onChangeText={text => setSearchTerm(text)}
+                                    value={searchTerm}
+                                    onSubmitEditing={searchPlant}
+                                />
+                                <TouchableOpacity onPress={searchPlant} style={{ backgroundColor: '#eaead4', borderRadius: 5, height: 40, paddingHorizontal: 10, marginBottom: 20, marginLeft: 20, justifyContent: "center", alignItems: 'center' }}>
+                                    <Icon name="search" size={20} color="black" />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    ) : (
+                        <Text></Text>
+                    )}
+
+                    <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
+                        <Image
+                            source={require('./../../../src/Icons/usuario.png')} style={{ width: 50, height: 50 }}
+                        />
                     </TouchableOpacity>
                 </View>
             </View>
-        ) : (
-            <Text></Text>
-        )}
-
-        <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
-            <Image
-                source={require('./../../../src/Icons/usuario.png')} style={{ width: 50, height: 50 }}
-            />
-        </TouchableOpacity>
-    </View>
-</View>
 
 
             <ScrollView style={styles.ScrollTamanho}>
@@ -263,26 +263,47 @@ function MostrarPlanta() {
 
     const { plantInfo, plantFavoritos } = useMeuContexto();
 
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    // descrição do primeiro Modal
+    const [modalTextUm, setModalTextUm] = useState('');
+
+    // descrição do segundo Modal
+    const [modalTextDois, setModalTextDois] = useState('');
+
+    // icone dos modal
+    const [modalIcon, setModalIcon] = useState('');
+
+    // cor do icone do modal
+    const [modalColor, setModalColor] = useState('');
+
 
     ////Função para Favoritar uma Planta\\\\
     function favoritarPlantas() {
+
         const isAlreadyFavorited = plantFavoritos.some(item => item.id === planta.id);
 
         if (!isAlreadyFavorited) {
             plantFavoritos.push(planta);
 
-            // Exiba uma mensagem de alerta
-            Alert.alert(
-                'Planta Favoritada',
-                'Esta planta foi adicionada aos seus favoritos!',
-                [{ text: 'OK', onPress: () => console.log('OK pressionado') }]
-            );
+            setModalTextUm('Esta planta foi adicionada aos seus favoritos!');
+            // Exibir o modal ao favoritar
+            setIsModalVisible(true);
+            // Exibir icone
+            setModalIcon('check');
+            // Cor do icone
+            setModalColor('#24c28ded');
+
         } else {
-            Alert.alert(
-                'Planta Já Favoritada',
-                'Esta planta já está nos seus favoritos!',
-                [{ text: 'OK', onPress: () => console.log('OK pressionado') }]
-            );
+
+            setModalTextUm('Esta planta já foi adicionada aos seus favoritos!');
+            // Exibir o modal ao favoritar
+            setIsModalVisible(true);
+            // Exibir icone
+            setModalIcon('warning');
+            // Cor do icone
+            setModalColor('red');
+
         }
     }
     ////Fim da Função para Favoritar uma Planta\\\\
@@ -317,6 +338,34 @@ function MostrarPlanta() {
     return (
 
         <View style={styles.container}>
+
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={isModalVisible}
+                onRequestClose={() => {
+                    setIsModalVisible(false);
+                }}
+            >
+                <View style={styles.modalBackground}>
+                    <View style={styles.modalView}>
+                        <FontAwesome
+                            style={{ marginBottom: 10 }}
+                            name={modalIcon}
+                            size={45}
+                            color={modalColor}
+                        />
+                        <Text style={styles.modalDescription}>
+                            {modalTextUm}
+                        </Text>
+                        <TouchableOpacity onPress={() => setIsModalVisible(false)}>
+                            <View style={{ width: 75, height: 40, backgroundColor: '#24c28d', borderRadius: 20, justifyContent: 'center', alignItems: 'center', }}>
+                                <Text style={{ fontSize: 22, color: 'white', marginBottom: 5, }}> OK </Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
             <View style={styles.Header}>
                 <View style={styles.iconsHeader}>
                     <TouchableOpacity onPress={() => navigation.navigate('')}>
@@ -358,7 +407,7 @@ function MostrarPlanta() {
                             </View>
 
                         </View>
-                        
+
                         <View style={styles.DivInforma}>
                             <View style={styles.emoji}>
                                 <Text style={{ fontSize: 35 }}>☀️</Text>
