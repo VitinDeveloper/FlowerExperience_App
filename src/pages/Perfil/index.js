@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Image, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; //importar icones da rede
@@ -7,7 +7,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { styles } from '../Perfil/stylePerfil.js'
-import { axios } from 'axios'
+import Axios from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function App() {
@@ -37,6 +38,33 @@ function Body() {
 
     const [input, setInput] = useState('');
     const [senha, setSenha] = useState(true);
+    const [usuarioNome, setUsuarioNome] = useState ('');
+    const [usuarioEmail, setUsuarioEmail] = useState ('');
+    const [usuarioSenha, setUsuarioSenha] = useState ('');
+
+    useEffect(()=>{
+        
+        async function getData() {
+
+            const id = await AsyncStorage.getItem('idUser')
+            console.log(id)
+            try {
+                const usuario = await Axios.get('http://localhost:19007/user/' + id ).then(response => response.data.usuario[0])
+                console.log(usuario)
+                setUsuarioNome (usuario.nome)
+                setUsuarioEmail (usuario.email)
+                setUsuarioSenha (usuario.senha)
+    
+            } catch (error) {
+                console.log(error)
+            }
+            
+            
+        }
+
+        getData()
+
+    }, [])
 
     return (
         <ScrollView style={styles.ScrollTamanho}>
@@ -64,6 +92,7 @@ function Body() {
                             <TextInput
                                 style={styles.input}
                                 placeholder="Username"
+                                value={usuarioNome}
                                 placeholderTextColor='#FFFFFF'
                             />
                         </View>
@@ -79,6 +108,7 @@ function Body() {
                             <Icon name="inbox" size={30} color="#000" style={styles.icon} />
                             <TextInput
                                 style={styles.input}
+                                value={usuarioEmail}
                                 placeholder="Email"
                                 placeholderTextColor='#FFFFFF'
                             />
@@ -96,7 +126,7 @@ function Body() {
                                 style={styles.input}
                                 placeholder='Password'
                                 placeholderTextColor='#FFFFFF'
-                                value={input}
+                                value={usuarioSenha}
                                 onChangeText={(texto) => setInput(texto)}
                                 secureTextEntry={senha}
                             />

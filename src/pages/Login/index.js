@@ -62,8 +62,9 @@ function Body() {
                     senha:entradaSenha
 
                 });
+              
+                await AsyncStorage.setItem("idUser", usuario.data.usuario.idusuarios)
 
-                console.log(usuario.data)
 
                 if (usuario.status == 200) {
 
@@ -71,8 +72,7 @@ function Body() {
                     navigation.navigate("Feed")
 
                 }
-
-    
+   
             }
     
         }

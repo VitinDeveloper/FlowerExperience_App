@@ -14,6 +14,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//listar Dados no BANCO DE DADOS//
+app.get("/user/:id", (req, res) => {
+const {id} = req.params
+
+  let SQL = `SELECT * FROM usuarios WHERE idusuarios = (?)`;
+
+  db.query(SQL, [id], (err, result) => {
+    console.log(err);
+    res.status(200).json({
+
+        usuario: result
+    })
+  });
+});
+
 //Cadastrar Dados no BANCO DE DADOS//
 app.post("/register", (req, res) => {
   const { nome, email, senha } = req.body;
