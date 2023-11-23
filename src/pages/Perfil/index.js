@@ -7,6 +7,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { styles } from '../Perfil/stylePerfil.js'
+import { axios } from 'axios'
+
 
 export default function App() {
 
@@ -58,11 +60,11 @@ function Body() {
                             <Text style={styles.labelEscritas}>Nome</Text>
                         </View>
                         <View style={styles.inputContainer}>
-                            <Icon name="user" size={30} color="#8b8a7a" style={styles.icon} />
+                            <Icon name="user" size={30} color='#FFFFFF' style={styles.icon} />
                             <TextInput
                                 style={styles.input}
                                 placeholder="Username"
-                                placeholderTextColor='#8b8a7a'
+                                placeholderTextColor='#FFFFFF'
                             />
                         </View>
                     </View>
@@ -78,7 +80,7 @@ function Body() {
                             <TextInput
                                 style={styles.input}
                                 placeholder="Email"
-                                placeholderTextColor='#8b8a7a'
+                                placeholderTextColor='#FFFFFF'
                             />
                         </View>
                     </View>
@@ -89,20 +91,20 @@ function Body() {
                             <Text style={styles.labelEscritas}>Senha</Text>
                         </View>
                         <View style={styles.inputContainer}>
-                            <Icon name="lock" size={30} color="#000" style={styles.icon} />
+                            <Icon name="lock" size={30} color='#FFFFFF' style={styles.icon} />
                             <TextInput
                                 style={styles.input}
                                 placeholder='Password'
-                                placeholderTextColor='#8b8a7a'
+                                placeholderTextColor='#FFFFFF'
                                 value={input}
                                 onChangeText={(texto) => setInput(texto)}
                                 secureTextEntry={senha}
                             />
                             <TouchableOpacity style={styles.icon} onPress={() => setSenha(!senha)}>
                                 {senha ?
-                                    <Ionicons name='eye' color='#8b8a7a' size={25} />
+                                    <Ionicons name='eye' color='#FFFFFF' size={25} />
                                     :
-                                    <Ionicons name='eye-off' color='#8b8a7a' size={25} />
+                                    <Ionicons name='eye-off' color='#FFFFFF' size={25} />
                                 }
                             </TouchableOpacity>
                         </View>
@@ -115,7 +117,7 @@ function Body() {
 
                                 <TouchableOpacity style={styles.button}>
 
-                                    <Text style={styles.nomesBotao}>Editar Usuário</Text>
+                                    <Text style={styles.nomesBotao}>Editar User</Text>
 
                                 </TouchableOpacity>
 
@@ -125,7 +127,7 @@ function Body() {
 
                                 <TouchableOpacity style={styles.button}>
 
-                                    <Text style={styles.nomesBotao}>Excluir Usuário</Text>
+                                    <Text style={styles.nomesBotao}>Excluir User</Text>
 
                                 </TouchableOpacity>
 

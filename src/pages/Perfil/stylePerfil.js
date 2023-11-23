@@ -135,13 +135,13 @@ DivisoesImputsButton:{
 //estilização dos Icones dentro do Input
 icon: {
     marginRight: 10,
-    color: '#8b8a7a',
+    color: '#FFFFFF',
 },
 
 //estilização da Escrita no placeholder
 input: {
     flex: 1,
-    color: '#8b8a7a',
+    color:'#FFFFFF',
     fontSize: 18,
 },
 
@@ -183,7 +183,7 @@ buttonStyle: {
 //estilização da escrita de dentro dos botões
 nomesBotao: {
     color: 'white',
-    fontSize: 30,
+    fontSize: 18,
 },
 
 //estilização da ScrollTamanho

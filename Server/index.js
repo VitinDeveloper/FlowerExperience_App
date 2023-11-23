@@ -4,52 +4,46 @@ const mysql = require("mysql");
 const cors = require("cors");
 
 const db = mysql.createPool({
-
-    host: "localhost",
-    user: "root",
-    password: "Vovochica@123",
-    database: "floweexerience"
+  host: "localhost",
+  user: "root",
+  password: "Vovochica@123",
+  database: "floweexerience",
 });
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
-
+app.use(express.urlencoded({ extended: true }));
 
 //Cadastrar Dados no BANCO DE DADOS//
 app.post("/register", (req, res) => {
+  const { nome, email, senha } = req.body;
 
-    const { nome, email, senha } = req.body;
+  let SQL = `INSERT INTO usuarios (nome, email, senha ) VALUES (?,?,?)`;
 
-
-    let SQL = `INSERT INTO usuarios (nome, email, senha ) VALUES (?,?,?)`;
-
-    db.query(SQL, [nome, email, senha], (err, result) => {
-        console.log(err);
-    });
-
-})
+  db.query(SQL, [nome, email, senha], (err, result) => {
+    console.log(err);
+  });
+});
 
 //Verificar LOGIN no BANCO DE DADOS//
 
-app.post('/user/login', (req, res) => {
-    const { email, senha } = req.body
-   
-    let sql = `SELECT * FROM usuarios WHERE email = ? AND senha = ?`;
+app.post("/user/login", (req, res) => {
+  const { email, senha } = req.body;
 
-    db.query(sql,[email, senha], (err, result) => {
-       
-        const usuario = result[0]
+  let sql = `SELECT * FROM usuarios WHERE email = ? AND senha = ?`;
 
-        if (!usuario) {
-            return res.status(401).json({ message: 'Credenciais inválidas.' });
-        } else {
-            return res.status(200).json({ usuario });
-        }
+  db.query(sql, [email, senha], (err, result) => {
+    const usuario = result[0];
 
-    });
+    if (!usuario) {
+      return res.status(401).json({ message: "Credenciais inválidas." });
+    } else {
+      return res.status(200).json({ usuario });
+    }
+  });
+});
 
-})
+// usuario.data.idusuario 
 
 // fazer a req para o back de todas as plantas
 
@@ -57,9 +51,6 @@ app.post('/user/login', (req, res) => {
 
 // usar o filter do js
 
-
 app.listen(19007, () => {
-
-    console.log("rodando servidor")
-
+  console.log("rodando servidor");
 });

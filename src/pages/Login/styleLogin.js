@@ -83,13 +83,13 @@ export const styles = StyleSheet.create({
     //estilização dos Icones dentro do Input
     icon: {
         marginRight: 10,
-        color: '#8b8a7a',
+        color: '#FFFFFF',
     },
 
     //estilização da Escrita no placeholder
     input: {
         flex: 1,
-        color: '#8b8a7a',
+        color: '#FFFFFF',
         fontSize: 18,
     },
 

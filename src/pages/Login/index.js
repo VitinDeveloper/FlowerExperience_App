@@ -63,16 +63,24 @@ function Body() {
 
                 });
 
+                console.log(usuario.data)
+
                 if (usuario.status == 200) {
 
                     await AsyncStorage.setItem('online', true)
-                    navigation.navigate("Feed")
+                    // navigation.navigate("Feed")
 
                 }
 
     
             }
     
+        }
+
+        function pageCadastro () {
+
+            navigation.navigate('Cadastro')
+
         }
 
     return (
@@ -88,10 +96,10 @@ function Body() {
                     <Text style={styles.labelEscritas}>Email</Text>
                 </View>
                 <View style={styles.inputContainer}>
-                    <Icon name="inbox" size={30} color="#000" style={styles.icon} />
+                    <Icon name="inbox" size={30} color='#000000' style={styles.icon} />
                     <TextInput
                         style={styles.input}
-                        placeholderTextColor='#8b8a7a'
+                        placeholderTextColor='#FFFFFF'
                         value={entradaEmail}
                         onChangeText={setEntradaEmail}
                         placeholder='Email'
@@ -103,27 +111,27 @@ function Body() {
                     <Text style={styles.labelEscritas}>Senha</Text>
                 </View>
                 <View style={styles.inputContainer}>
-                    <Icon name="lock" size={30} color="#000" style={styles.icon} />
+                    <Icon name="lock" size={30} color='#000000' style={styles.icon} />
                     <TextInput
                         style={styles.input}
                         placeholder='Senha'
-                        placeholderTextColor='#8b8a7a'
+                        placeholderTextColor='#FFFFFF'
                         value={entradaSenha}
                         onChangeText={(texto) => setEntradaSenha(texto)}
                         secureTextEntry={inputSenha}
                     />
                     <TouchableOpacity style={styles.icon} onPress={() => setInputSenha(!inputSenha)}>
                         {inputSenha ?
-                            <Ionicons name='eye' color='#8b8a7a' size={25} /> //olho aberto
+                            <Ionicons name='eye' color='#FFFFFF' size={25} /> //olho aberto
                             :
-                            <Ionicons name='eye-off' color='#8b8a7a' size={25} /> //olho fechado
+                            <Ionicons name='eye-off' color='#FFFFFF' size={25} /> //olho fechado
                         }
                     </TouchableOpacity>
                 </View>
 
                 {/* Link para recuperação de senha */}
                 <TouchableOpacity>
-                    <Text style={styles.esqueciSenha}>Esqueci minha senha</Text>
+                    <Text style={styles.esqueciSenha}onPress={pageCadastro}>Não possuo cadastro</Text>
                     <View style={styles.horizontalLinha}></View>
                 </TouchableOpacity>
             </View>

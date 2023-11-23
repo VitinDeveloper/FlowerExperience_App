@@ -25,6 +25,13 @@ export default function App() {
               title: '',
               headerShown: false,
             }}
+            
+            name="Login" component={Login} />
+            <Stack.Screen
+            options={{
+              title: '',
+              headerShown: false,
+            }}
 
             name="Perfil" component={Perfil} />
           <Stack.Screen
@@ -40,12 +47,6 @@ export default function App() {
             }}
             name="Favoritos" component={Favoritos} />
           
-          <Stack.Screen
-            options={{
-              title: '',
-              headerShown: false,
-            }}
-            name="Login" component={Login} />
           <Stack.Screen
             options={{
               title: '',

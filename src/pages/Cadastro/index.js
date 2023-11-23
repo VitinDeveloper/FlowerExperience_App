@@ -86,7 +86,7 @@ function Body() {
                     <Icon name="inbox" size={30} color="#000" style={styles.icon} />
                     <TextInput
                         style={styles.input}
-                        placeholderTextColor='#8b8a7a'
+                        placeholderTextColor='#FFFFFF'
                         value={entradaNome}
                         onChangeText={setEntradaNome}
                         placeholder='Nome'
@@ -98,10 +98,10 @@ function Body() {
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Icon name="inbox" size={30} color="#000" style={styles.icon} />
+                    <Icon name="inbox" size={30} color='#FFFFFF' style={styles.icon} />
                     <TextInput
                         style={styles.input}
-                        placeholderTextColor='#8b8a7a'
+                        placeholderTextColor='#FFFFFF'
                         value={entradaEmail}
                         onChangeText={setEntradaEmail}
                         placeholder='Email'
@@ -113,20 +113,20 @@ function Body() {
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Icon name="lock" size={30} color="#000" style={styles.icon} />
+                    <Icon name="lock" size={30} color='#FFFFFF' style={styles.icon} />
                     <TextInput
                         style={styles.input}
                         placeholder='Senha'
-                        placeholderTextColor='#8b8a7a'
+                        placeholderTextColor='#FFFFFF'
                         value={entradaSenha}
                         onChangeText={(texto) => setEntradaSenha(texto)}
                         secureTextEntry={inputSenha}
                     />
                     <TouchableOpacity style={styles.icon} onPress={() => setInputSenha(!inputSenha)}>
                         {inputSenha ?
-                            <Ionicons name='eye' color='#8b8a7a' size={25} /> //olho aberto
+                            <Ionicons name='eye' color='#FFFFFF' size={25} /> //olho aberto
                             :
-                            <Ionicons name='eye-off' color='#8b8a7a' size={25} /> //olho fechado
+                            <Ionicons name='eye-off' color='#FFFFFF' size={25} /> //olho fechado
                         }
                     </TouchableOpacity>
                 </View>
@@ -136,20 +136,20 @@ function Body() {
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Icon name="lock" size={30} color="#000" style={styles.icon} />
+                    <Icon name="lock" size={30} color='#FFFFFF' style={styles.icon} />
                     <TextInput
                         style={styles.input}
                         placeholder='Senha'
-                        placeholderTextColor='#8b8a7a'
+                        placeholderTextColor='#FFFFFF'
                         value={entradaConfirmSenha}
                         onChangeText={(texto) => setEntradaConfirmSenha(texto)}
                         secureTextEntry={inputConfirmSenha}
                     />
                     <TouchableOpacity style={styles.icon} onPress={() => setInputConfirmSenha(!inputConfirmSenha)}>
                         {inputConfirmSenha ?
-                            <Ionicons name='eye' color='#8b8a7a' size={25} /> //olho aberto
+                            <Ionicons name='eye' color='#FFFFFF' size={25} /> //olho aberto
                             :
-                            <Ionicons name='eye-off' color='#8b8a7a' size={25} /> //olho fechado
+                            <Ionicons name='eye-off' color='#FFFFFF' size={25} /> //olho fechado
                         }
                     </TouchableOpacity>
                 </View>

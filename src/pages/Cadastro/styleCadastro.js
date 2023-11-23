@@ -124,7 +124,7 @@ export const styles = StyleSheet.create({
     // Estilos para os ícones dentro do input
     icon: {
         marginRight: 10,
-        color: '#8b8a7a',
+        color: '#FFFFFF',
     },
 
     // Estilos para o texto do placeholder
