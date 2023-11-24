@@ -6,8 +6,8 @@ const cors = require("cors");
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "Vovochica@123",
-  database: "floweexerience",
+  password: "12345",
+  database: "flower_experience",
 });
 
 app.use(cors());
@@ -15,10 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-
-
-
-//Cadastrar Dados no BANCO DE DADOS//
+////Cadastrar Dados no BANCO DE DADOS\\\\
 app.post("/register", (req, res) => {
   const { nome, email, senha } = req.body;
 
@@ -30,11 +27,9 @@ app.post("/register", (req, res) => {
 });
 
 
-
-
-//listar Dados do USUÀRIO pelo BANCO DE DADOS//
+////listar Dados do USUÀRIO pelo BANCO DE DADOS\\\
 app.get("/user/:id", (req, res) => {
-const {id} = req.params  
+  const { id } = req.params
 
   let SQL = `SELECT * FROM usuarios WHERE idusuarios = (?)`;
 
@@ -42,33 +37,52 @@ const {id} = req.params
     console.log(err);
     res.status(200).json({
 
-        usuario: result
-    })    
-  });  
-});  
+      usuario: result
+    })
+  });
+});
 
 
 
+////Editar USUARIO do BANDO DE DADOS\\\\
+app.put("/user/edit/:id", (req, res) => {
+  const { id } = req.params;
+  const { nome, email, senha } = req.body;
 
+  let SQL = `UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE idusuarios = ?`;
 
-//Excluir USUARIO do BANDO DE DADOS//
-app.delete("/user/deleteUser/:id", (req, res) => {
-  const {id} = req.params  
-  
-    let SQL = `DELETE FROM usuarios WHERE idusuarios = (?)`;
-  
-    db.query(SQL, [id], (err, result) => {
+  db.query(SQL, [nome, email, senha, id], (err, result) => {
+    if (err) {
       console.log(err);
-      res.status(200).json({
-  
-        message: 'usuário excluido'
-      })    
-    });  
-  });  
+      return res.status(500).json({
+        message: 'Erro ao editar usuário'
+      });
+    }
+
+    res.status(200).json({
+      message: 'Usuário editado com sucesso'
+    });
+  });
+});
 
 
-//Verificar LOGIN no BANCO DE DADOS//
+////Excluir USUARIO do BANDO DE DADOS\\\\
+app.delete("/user/deleteUser/:id", (req, res) => {
+  const { id } = req.params
 
+  let SQL = `DELETE FROM usuarios WHERE idusuarios = (?)`;
+
+  db.query(SQL, [id], (err, result) => {
+    console.log(err);
+    res.status(200).json({
+
+      message: 'usuário excluido'
+    })
+  });
+});
+
+
+////Verificar LOGIN no BANCO DE DADOS\\\\
 app.post("/user/login", (req, res) => {
   const { email, senha } = req.body;
 
@@ -85,10 +99,8 @@ app.post("/user/login", (req, res) => {
   });
 });
 
-
-
-
-
 app.listen(19007, () => {
   console.log("rodando servidor");
 });
+
+
