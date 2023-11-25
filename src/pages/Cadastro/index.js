@@ -155,6 +155,8 @@ function Body() {
                 </View>
 
                 {/* Botão de cadastro */}
+                <View style={{width: '100%', alignItems: 'center', justifyContent:'center'}}>
+
                 <View style={styles.buttonStyle}>
                     <TouchableOpacity style={styles.button} onPress={Cadastrar}>
                         <Text style={styles.nomesBotao}>Cadastrar</Text>
@@ -164,6 +166,7 @@ function Body() {
                     <Text style={styles.esqueciSenha} onPress={() => navigation.navigate('Login')}>Já Possuo Cadastro</Text>
                     <View style={styles.horizontalLinha}></View>
                 </TouchableOpacity>
+                </View>
             </View>
         </View>
     );

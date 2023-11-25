@@ -25,11 +25,13 @@ export const styles = StyleSheet.create({
         borderBottomRightRadius: 20,
         marginLeft: '2%',
         marginRight: '2%',
+        backgroundColor: '#eaead4'
     },
 
     // Estilos para o cabeçalho dentro da parte central
     HeaderBody: {
-        height: window.height * 0.2,
+        height: '25%',
+        width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#eaead4',
@@ -46,7 +48,8 @@ export const styles = StyleSheet.create({
 
     // Estilos para o conteúdo dentro da parte central
     conteudo: {
-        height: window.height * 0.64,
+       height: 'auto',
+       width: '100%',
         justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#eaead4',
@@ -154,6 +157,7 @@ export const styles = StyleSheet.create({
         width: '40%',
         height: 40,
         backgroundColor: '#24c28d',
+
         borderColor: '#24c28d',
         alignItems: 'center',
         justifyContent: 'center',
