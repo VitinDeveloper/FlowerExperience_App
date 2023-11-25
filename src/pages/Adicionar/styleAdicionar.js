@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
 
     // Estilos para a parte central (Body)
     Body: {
-        height: window.height * 0.85,
+       height: 'auto',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 20,
@@ -30,13 +30,14 @@ export const styles = StyleSheet.create({
 
     // Estilos para o cabeçalho dentro da parte central
     HeaderBody: {
-        height: window.height * 0.2,
+      height: 'auto',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#eaead4',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         flexDirection: 'row',
+        padding: 20
     },
 
     // Estilos para o texto dentro do cabeçalho
@@ -48,7 +49,7 @@ export const styles = StyleSheet.create({
 
     // Estilos para o conteúdo dentro da parte central
     conteudo: {
-        height: window.height * 0.64,
+        height: 'auto',
         justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#eaead4',
@@ -181,7 +182,9 @@ export const styles = StyleSheet.create({
         width: "50%",
         height: "100%",
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 20,
+        margin: 20
     },
 
     view_foto_dois: {
@@ -189,7 +192,9 @@ export const styles = StyleSheet.create({
         width: "50%",
         height: "100%",
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 20,
+        margin: 20
     },
 
     view_foto_um: {

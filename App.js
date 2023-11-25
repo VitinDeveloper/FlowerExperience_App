@@ -25,6 +25,18 @@ export default function App() {
               title: '',
               headerShown: false,
             }}
+            name="Adicionar" component={Adicionar} />
+        <Stack.Screen
+            options={{
+              title: '',
+              headerShown: false,
+            }}
+            name="Feed" component={Feed} />
+        <Stack.Screen
+            options={{
+              title: '',
+              headerShown: false,
+            }}
             
             name="Login" component={Login} />
             <Stack.Screen
@@ -34,12 +46,7 @@ export default function App() {
             }}
 
             name="Perfil" component={Perfil} />
-          <Stack.Screen
-            options={{
-              title: '',
-              headerShown: false,
-            }}
-            name="Feed" component={Feed} />
+        
           <Stack.Screen
             options={{
               title: '',
@@ -59,12 +66,7 @@ export default function App() {
               headerShown: false,
             }}
             name="Administrador" component={Administrador} />
-          <Stack.Screen
-            options={{
-              title: '',
-              headerShown: false,
-            }}
-            name="Adicionar" component={Adicionar} />
+         
         </Stack.Navigator>
       </NavigationContainer>
 
