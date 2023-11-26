@@ -12,11 +12,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 // Objeto para armazenar dados do login
-    let armazenandoLogin = {
-        nome: '',
-        email: '',
-        senha: ''
-    }
+let armazenandoLogin = {
+    nome: '',
+    email: '',
+    senha: ''
+}
 
 export default function App() {
     return (
@@ -47,41 +47,38 @@ function Body() {
     const [entradaSenha, setEntradaSenha] = useState('');
     const [inputSenha, setInputSenha] = useState(true);
 
-        // Função para lidar com o evento de login
-        async function Login() {
+    // Função para lidar com o evento de login
+    async function Login() {
 
-            if (entradaEmail === '' || entradaSenha === '') {
-                alert('Preencha todos os campos')
-    
-            }else{ 
+        if (entradaEmail === '' || entradaSenha === '') {
+            alert('Preencha todos os campos')
 
-    
-                const usuario = await Axios.post('http://localhost:19007/user/login',{
-    
-                    email:entradaEmail,
-                    senha:entradaSenha
+        } else {
 
-                });
-              
-                await AsyncStorage.setItem("idUser", usuario.data.usuario.idusuarios)
+            //http://Endereço-IPv4:19007/user/login
+            const usuario = await Axios.post('http://192.168.0.108:19007/user/login', {
 
+                email: entradaEmail,
+                senha: entradaSenha
 
-                if (usuario.status == 200) {
+            });
 
-                    await AsyncStorage.setItem('online', true)
-                    navigation.navigate("Feed")
+            await AsyncStorage.setItem("idUser", JSON.stringify(usuario.data.usuario.idusuarios))
 
-                }
-   
+            if (usuario.status == 200) {
+
+                await AsyncStorage.setItem('online', JSON.stringify(true))
+                navigation.navigate("Feed")
+
             }
-    
         }
+    }
 
-        function pageCadastro () {
+    function pageCadastro() {
 
-            navigation.navigate('Cadastro')
+        navigation.navigate('Cadastro')
 
-        }
+    }
 
     return (
 
@@ -131,7 +128,7 @@ function Body() {
 
                 {/* Link para recuperação de senha */}
                 <TouchableOpacity>
-                    <Text style={styles.esqueciSenha}onPress={pageCadastro}>Não possuo cadastro</Text>
+                    <Text style={styles.esqueciSenha} onPress={pageCadastro}>Não possuo cadastro</Text>
                     <View style={styles.horizontalLinha}></View>
                 </TouchableOpacity>
             </View>
@@ -147,13 +144,13 @@ function Body() {
         </View>
     );
 
-};  
+};
 
 
 
-    // Função para renderizar a parte inferior (Footer)
-    function Footer() {
-        return (
-            <View style={styles.Footer}></View>
-        );
-    }
+// Função para renderizar a parte inferior (Footer)
+function Footer() {
+    return (
+        <View style={styles.Footer}></View>
+    );
+}

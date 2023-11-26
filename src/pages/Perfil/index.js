@@ -53,7 +53,8 @@ function Body() {
 
             console.log(id)
             try {
-                const usuario = await Axios.get('http://localhost:19007/user/' + id).then(response => response.data.usuario[0])
+                //http://Endereço-IPv4:19007/user
+                const usuario = await Axios.get('http://192.168.0.108:19007/user/' + id).then(response => response.data.usuario[0])
                 console.log(usuario)
                 setUsuarioNome(usuario.nome)
                 setUsuarioEmail(usuario.email)
@@ -74,7 +75,8 @@ function Body() {
         const id = await AsyncStorage.getItem('idUser');
 
         try {
-            const mensagem = await Axios.put('http://localhost:19007/user/edit/' + id, {
+            //http://Endereço-IPv4:19007/user/edit
+            const mensagem = await Axios.put('http://192.168.0.108:19007/user/edit/' + id, {
                 nome: usuarioNome,
                 email: usuarioEmail,
                 senha: usuarioSenha
@@ -98,7 +100,8 @@ function Body() {
 
         console.log(id)
         try {
-            const mensagem = await Axios.delete('http://localhost:19007/user/deleteUser/' + id).then(response => response.data.message)
+             //http://Endereço-IPv4:19007/user/deleteUser
+            const mensagem = await Axios.delete('http://192.168.0.108:19007/user/deleteUser/' + id).then(response => response.data.message)
             if (mensagem == 'usuário excluido') {
                 alert('Usuário excluido com sucesso!')
 

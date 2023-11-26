@@ -6,8 +6,8 @@ const cors = require("cors");
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "12345",
-  database: "flower_experience",
+  password: "12345", //Mudar Senha de acordo Com o Banco
+  database: "flower_experience", //Nome do Banco Correspondente
 });
 
 app.use(cors());
@@ -22,7 +22,11 @@ app.post("/register", (req, res) => {
   let SQL = `INSERT INTO usuarios (nome, email, senha ) VALUES (?,?,?)`;
 
   db.query(SQL, [nome, email, senha], (err, result) => {
-    console.log(err);
+    
+    res.status(200).json({
+      cadastro: result
+    })
+
   });
 });
 

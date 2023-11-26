@@ -204,7 +204,7 @@ export const styles = StyleSheet.create({
         padding: 5,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: '10%',
+        borderRadius: 30, //troca aqui
         borderWidth: 2,
         borderColor: '#24c28d'
     },
@@ -216,7 +216,7 @@ export const styles = StyleSheet.create({
         marginLeft: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: '10%',
+        borderRadius: 30, //troca aqui
         borderWidth: 2,
         borderColor: '#24c28d'
     },

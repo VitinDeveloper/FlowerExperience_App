@@ -140,11 +140,46 @@ export function MeuContextoProvider({ children }) {
 
     };
 
+
+    ////Adicionar Uma nova Planta dentro do Feed\\\\
+    let lastId = 9
+
+    const createObject = ({ obj }) => {
+
+        const id = lastId + 1
+
+        const {
+            titulo,
+            sobre,
+            luz,
+            agua,
+            fertilizante,
+            origem,
+            imagensUm,
+            imagensDois
+        } = obj
+
+        plantInfo.push({
+            id: id,
+            titulo,
+            sobre,
+            agua,
+            luz,
+            fertilizante,
+            origem,
+            imagensDois,
+            imagensUm
+        })
+
+        lastId++
+    }
+
+
     ////Comando para Pesquisar Planta na Tela de Feed\\\\
-    const [plantPesquisa, setPlantPesquisa ] = useState()
+    const [plantPesquisa, setPlantPesquisa] = useState()
 
     return (
-        <MeuContexto.Provider value={{ plantInfo,plantPesquisa, setPlantPesquisa, plantFavoritos, removeObjectById }}>
+        <MeuContexto.Provider value={{ plantInfo, plantPesquisa, setPlantPesquisa, plantFavoritos, removeObjectById, createObject }}>
             {children}
         </MeuContexto.Provider>
     );

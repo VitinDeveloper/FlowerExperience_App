@@ -5,14 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome'; // Importar ícones da
 import { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { styles } from '../Adicionar/styleAdicionar.js'
+import { useMeuContexto } from '../Contexto/index.js';
 
-// Objeto para armazenar dados do formulário de cadastro
-let armazenandoCadastro = {
-    nome: '',
-    email: '',
-    senha: '',
-    confirmSenha: ''
-}
 
 export default function App() {
     return (
@@ -44,27 +38,41 @@ function Body() {
     const [entradaConfirmSenha, setEntradaConfirmSenha] = useState('')
     const [inputConfirmSenha, setInputConfirmSenha] = useState(true)
 
+    const { createObject } = useMeuContexto()
+
     // Função para realizar o cadastro
-    function Cadastrar() {
-        if (entradaNome == '' || entradaEmail == '' || entradaSenha == '' || entradaConfirmSenha == '') {
-            alert('Preencha todos os campos')
-        } else if (entradaSenha !== entradaConfirmSenha) {
-            alert('As senhas não conferem')
-        } else {
-            // Atribui os valores dos inputs ao objeto de armazenamento
-            armazenandoCadastro.nome = entradaNome
-            armazenandoCadastro.email = entradaEmail
-            armazenandoCadastro.senha = entradaSenha
-            armazenandoCadastro.confirmSenha = entradaConfirmSenha
+    // function Cadastrar() {
+    //     // if (entradaNome == '' || entradaEmail == '' || entradaSenha == '' || entradaConfirmSenha == '') {
+    //     //     alert('Preencha todos os campos')
+    //     // } else if (entradaSenha !== entradaConfirmSenha) {
+    //     //     alert('As senhas não conferem')
+    //     // } else {
+    //     //     // Atribui os valores dos inputs ao objeto de armazenamento
+    //     //     armazenandoCadastro.nome = entradaNome
+    //     //     armazenandoCadastro.email = entradaEmail
+    //     //     armazenandoCadastro.senha = entradaSenha
+    //     //     armazenandoCadastro.confirmSenha = entradaConfirmSenha
 
-            // Salva os dados do cadastro e os exibe no console
-            // const infoCadastradas = armazenandoCadastro
-            console.log(armazenandoCadastro)
+    //     //     // Salva os dados do cadastro e os exibe no console
+    //     //     // const infoCadastradas = armazenandoCadastro
+    //     //     console.log(armazenandoCadastro)
 
-            // Navega para a tela de login, passando os dados do cadastro como parâmetro
-            navigation.navigate('Login', { objetoRecebidoCadastro: armazenandoCadastro })
-        }
-    }
+    //     //     // Navega para a tela de login, passando os dados do cadastro como parâmetro
+    //     //     navigation.navigate('Login', { objetoRecebidoCadastro: armazenandoCadastro })
+    //     // }
+
+    //     // const obj = {
+    //     //     titulo,
+    //     //     sobre,
+    //     //     luz,
+    //     //     agua,
+    //     //     fertilizante,
+    //     //     origem,
+    //     //     imagensUm,
+    //     //     imagensDois
+    //     // }
+    //     // createObject({obj})
+    // }
 
     return (
         <View style={styles.Body}>
@@ -169,9 +177,9 @@ function Body() {
 
                 {/* Botão de cadastro */}
                 <View style={styles.buttonStyle}>
-                    <TouchableOpacity style={styles.button} onPress={Cadastrar}>
+                    {/* <TouchableOpacity style={styles.button} onPress={Cadastrar}>
                         <Text style={styles.nomesBotao}>Cadastrar</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
             </View>

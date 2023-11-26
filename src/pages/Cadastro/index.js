@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { styles } from '../Cadastro/styleCadastro.js'
-import  axios  from 'axios';
+import axios from 'axios';
 
 // Objeto para armazenar dados do formulário de cadastro
 let armazenandoCadastro = {
@@ -47,7 +47,7 @@ function Body() {
     const [inputConfirmSenha, setInputConfirmSenha] = useState(true)
 
     // Função para realizar o cadastro
-    function Cadastrar() {
+    async function Cadastrar() {
         if (entradaNome == '' || entradaEmail == '' || entradaSenha == '' || entradaConfirmSenha == '') {
             alert('Preencha todos os campos')
         } else if (entradaSenha !== entradaConfirmSenha) {
@@ -57,16 +57,18 @@ function Body() {
             armazenandoCadastro.nome = entradaNome
             armazenandoCadastro.email = entradaEmail
             armazenandoCadastro.senha = entradaSenha
-            armazenandoCadastro.confirmSenha = entradaConfirmSenha
-            
-            axios.post('http://localhost:19007/register', armazenandoCadastro)
+
+            //http://Endereço-IPv4:19007/register
+            const resultado = await axios.post('http://192.168.0.108:19007/register', armazenandoCadastro)
+                .then(response => response.data.cadastro)
+
 
             // Salva os dados do cadastro e os exibe no console
-            // const infoCadastradas = armazenandoCadastro
-            console.log(armazenandoCadastro)
+            // const infoCadastradas = armazenandoCadastror
+            console.log(resultado)
 
             // Navega para a tela de login, passando os dados do cadastro como parâmetro
-            navigation.navigate('Login', { objetoRecebidoCadastro: armazenandoCadastro })
+            navigation.navigate('Login', { objetoRecebidoCadastro: resultado })
         }
     }
 
@@ -155,17 +157,17 @@ function Body() {
                 </View>
 
                 {/* Botão de cadastro */}
-                <View style={{width: '100%', alignItems: 'center', justifyContent:'center'}}>
+                <View style={{ width: '100%', alignItems: 'center', justifyContent: 'center' }}>
 
-                <View style={styles.buttonStyle}>
-                    <TouchableOpacity style={styles.button} onPress={Cadastrar}>
-                        <Text style={styles.nomesBotao}>Cadastrar</Text>
+                    <View style={styles.buttonStyle}>
+                        <TouchableOpacity style={styles.button} onPress={Cadastrar}>
+                            <Text style={styles.nomesBotao}>Cadastrar</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity>
+                        <Text style={styles.esqueciSenha} onPress={() => navigation.navigate('Login')}>Já Possuo Cadastro</Text>
+                        <View style={styles.horizontalLinha}></View>
                     </TouchableOpacity>
-                </View>
-                <TouchableOpacity>
-                    <Text style={styles.esqueciSenha} onPress={() => navigation.navigate('Login')}>Já Possuo Cadastro</Text>
-                    <View style={styles.horizontalLinha}></View>
-                </TouchableOpacity>
                 </View>
             </View>
         </View>
