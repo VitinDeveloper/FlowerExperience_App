@@ -96,9 +96,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         display: 'relative',
-        marginTop: -40,
-        borderTopRightRadius: 450,
-        borderTopLeftRadius: 450,
     },
 
     // Estilos para a parte direita do rodapé
@@ -133,7 +130,7 @@ export const styles = StyleSheet.create({
     // Estilos para o texto do placeholder
     input: {
         flex: 1,
-        color: '#8b8a7a',
+        color: '#FFFFFF',
         fontSize: 18,
     },
 

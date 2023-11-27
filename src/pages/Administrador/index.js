@@ -72,7 +72,8 @@ let plantas_listadas = [
 
 function Body() {
 
-
+    const navigation = useNavigation();
+    
     return (
 
         <View style={styles.Body}>
@@ -132,7 +133,7 @@ function Body() {
 
                     <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
 
-                        <TouchableOpacity style={styles.button_add_planta} >
+                        <TouchableOpacity style={styles.button_add_planta} onPress={() => navigation.navigate('Adicionar')} >
                             <Text style={styles.text_add_planta}>Cadastrar</Text>
                         </TouchableOpacity>
                     </View>

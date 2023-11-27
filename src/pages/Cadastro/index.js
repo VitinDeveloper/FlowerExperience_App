@@ -58,6 +58,7 @@ function Body() {
             armazenandoCadastro.email = entradaEmail
             armazenandoCadastro.senha = entradaSenha
 
+
             //http://Endereço-IPv4:19007/register
             const resultado = await axios.post('http://192.168.0.108:19007/register', armazenandoCadastro)
                 .then(response => response.data.cadastro)

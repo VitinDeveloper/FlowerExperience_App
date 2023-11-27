@@ -10,7 +10,7 @@ function MenuBar({ onCloseMenu }) {
 
     useEffect(() => {
         async function getId() {
-            const idAdmin = '16';
+            const idAdmin = '19';
             const id = await AsyncStorage.getItem("idUser");
 
             if (id === idAdmin) {

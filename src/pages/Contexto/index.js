@@ -1,4 +1,4 @@
-// ./src/contexts/MeuContexto.js
+// ./src/contexts/MeuContexto.jsMagnus
 import React, { createContext, useContext, useState } from 'react';
 
 const MeuContexto = createContext();

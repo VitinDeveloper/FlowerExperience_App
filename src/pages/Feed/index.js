@@ -215,7 +215,7 @@ function Body() {
                         {!showSearch ? (
                             <TouchableOpacity onPress={() => {
                                 setShowSearch(true)
-                                navigation.navigate('')
+                              
                             }}>
                                 <Image
                                     source={require('./../../../src/Icons/pesquisar.png')} style={{ width: 60, height: 60 }}
@@ -314,7 +314,6 @@ function MostrarPlanta() {
 
     const { titulo, sobre, luz, agua, fertilizante, origem, imagemUm, imagemDois, id } = planta;
 
-    console.log(titulo)
 
     console.log(idEscolhido)
     const navigation = useNavigation()
